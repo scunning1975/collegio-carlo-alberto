@@ -39,13 +39,13 @@ Friday (day 5)
 Monday: The Core of DiD (2x2)
 - Review of 2×2 DiD -- four averages, three subtractions
 - Review Potential outcomes and ATT 
-- Estimation with "the three regressions" equivalence to 2x2
+	- Estimation with "the three regressions" equivalence to 2x2
 - New: Weighting by Population 
-- In class: Castle Doctrine 2x2 and three regressions with and without population weights
+	- In class: Castle Doctrine 2x2 and three regressions with and without population weights
 - Review: Event studies, leads/lags, and long difference estimation
 - Review: Other falsification strategies -- 1) Placebo group, same outcome and 2) Placebo outcome, same group
 - Review: Triple differences
-- Homework: Concealed carry (Lott and Mustard 1997; Donohue et al. 2011) and checklist
+	- Homework: Concealed carry (Lott and Mustard 1997; Donohue et al. 2011) and checklist
 
 Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT
 - Sampling problems
@@ -63,15 +63,19 @@ Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT
 
 Wednesday: Introducing Differential Timing (GxT)
 - Reviewing Bacon decomposition of TWFE
-- Reviewing Callaway & Sant’Anna with simulation and castle doctrine application
-- Calculating event study plots using long differences (traditional) versus "short gaps" (non-traditional) 
-- Craigslist case study
+- Estimation with Callaway & Sant’Anna 
+	- Simulation 
+	- Castle doctrine application
+	- Interpreting weighted averages
+	- Event Studies with Long Differences (Traditional) and Short Gaps (Non-Traditional)
+- Problem Solving Your Diff-in-Diff: **Craigslist case study**
 
 Thursday: More on Differential Timing
-- Sun & Abraham and dCDH estimators
+- Decomposing leads and lags with Sun & Abraham 
+- Diff-in-diff with entry and exit: dCDH 
 - Imputation with Borusyak et al. and castle doctrine application
 - Honest DiD
-- Continuous DiD (DxT) and revisiting the abortion clinic closures 
+- New: **Continuous DiD (DxT) and revisiting the abortion clinic closures**
 
 Friday: Wrapping things up
 - Continuous DiD (DxT) continued
