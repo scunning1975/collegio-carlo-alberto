@@ -87,8 +87,8 @@ This repository contains:
 - `/code/` – Hands-on Stata and R code  
 - `/data/` – Sample datasets used during exercises  
 - `README.md` – This file  
-- (Optional) `/references/` – Additional readings and papers
-- Google sheets: https://docs.google.com/spreadsheets/d/1sgFjJgKaD5ARhkQy2cg3-r_6LV8kheEJGc4rpEtcoMk/edit?usp=sharing
+- `/references/` – Additional readings and papers
+- `/notes/` – Miscellaneous notes from class throughout the week
 
 
 ---
