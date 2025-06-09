@@ -18,7 +18,7 @@ This class is a follow-up to Juan F. Vargas recent panel methods class.  The pur
 
 Together we will work on a week-long coding exercise involving data from Cheng and Hoekstra (2013) castle doctrine reform paper in the *JHR*, as well as implement your own project related to the concealed carry ("right to carry") outside of class based on Lott and Mustard (1997) and Donohue, et al. (2011).  We will also replicate my JHR with Myers and Lindo on abortion clinic closures and abortion demand for our continuous diff-in-diff application.
 
-While some of this is review, our focus is to better prepare you for your own research via an intense of "checklist design" and overall greater credibility and assurance in your own projects. This repo will change regularly throughout the week so please download it regularly.
+While some of this is review, our focus is to better prepare you for your own research via an intense of "checklist design" and overall greater credibility and assurance in your own projects. We have a lot to cover, so you'll need to keep up and come to class.  This repo will change regularly throughout the week so please download it regularly.
 
 ---
 
