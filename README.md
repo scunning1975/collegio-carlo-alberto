@@ -53,8 +53,8 @@ Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT
 	- Imbalance diagnostics: Propensity scores and Normalized difference in mean outcomes table
 	- Estimation with Abadie IPW, Heckman, Ichimura and Todd OR, DR, and TWFE
 - Using drdid, csdid, and did for 2×T event studies
-- In class: Covariates and castle doctrine 2x2 and 2xT
-- Homework: Concealed carry and checklist (covariate selection and 2xT)
+	- In class: Covariates and castle doctrine 2x2 and 2xT
+	- Homework: Concealed carry and checklist (covariate selection and 2xT)
 
 
 Wednesday: Introducing Differential Timing (GxT)
@@ -69,7 +69,9 @@ Thursday: More on Differential Timing
 - Honest DiD
 - Continuous DiD (DxT) and revisiting the abortion clinic closures 
 
-Friday: Reviewing concealed carry together
+Friday: Wrapping things up
+- Continuous DiD (DxT) continued
+- Discussing your concealed carry and plotting class distribution
 
 ---
 
