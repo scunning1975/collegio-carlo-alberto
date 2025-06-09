@@ -47,12 +47,6 @@ preserve
     reg diff treat, vce(cluster sid)
 restore
 
-	* Visualize the imbalance
-twoway (kdensity pscore if treat==1,  color(green)) ///
-       (kdensity pscore if treat==0,  ///
-	   fcolor(none) lcolor(black)), legend(order(1 "Treated" 2 "Not treated" ))
-
-
 * Now calculate the same thing using population weights as below
 
 * Example 1: OLS regression with interactions and population weights

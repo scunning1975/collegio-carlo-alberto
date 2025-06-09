@@ -2,11 +2,11 @@
 \beamer@subsectionintoc {1}{1}{Managing expectations}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{Diff-in-Diff Popularity}{7}{0}{1}
 \beamer@subsectionintoc {1}{3}{Origins of diff-in-diff in public health}{13}{0}{1}
-\beamer@sectionintoc {2}{Diff-in-Diff Fundamentals}{20}{0}{2}
-\beamer@subsectionintoc {2}{1}{Average Treatment Effect on the Treated}{21}{0}{2}
-\beamer@subsectionintoc {2}{2}{Core Diff-in-Diff Assumptions}{28}{0}{2}
-\beamer@sectionintoc {3}{Different Target Parameters}{40}{0}{3}
-\beamer@subsectionintoc {3}{1}{Clearly Defined Control Status}{41}{0}{3}
-\beamer@subsectionintoc {3}{2}{Imbalanced Panels}{51}{0}{3}
+\beamer@sectionintoc {2}{Diff-in-Diff Fundamentals}{21}{0}{2}
+\beamer@subsectionintoc {2}{1}{Average Treatment Effect on the Treated}{22}{0}{2}
+\beamer@subsectionintoc {2}{2}{Core Diff-in-Diff Assumptions}{29}{0}{2}
+\beamer@sectionintoc {3}{Different Target Parameters}{41}{0}{3}
+\beamer@subsectionintoc {3}{1}{Clearly Defined Control Status}{42}{0}{3}
+\beamer@subsectionintoc {3}{2}{Imbalanced Panels}{53}{0}{3}
 \beamer@subsectionintoc {3}{3}{Population Weighting}{60}{0}{3}
-\beamer@sectionintoc {4}{Four Means or One Regression?}{76}{0}{4}
+\beamer@sectionintoc {4}{Four Means or One Regression?}{75}{0}{4}

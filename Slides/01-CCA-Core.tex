@@ -122,18 +122,6 @@ Pedagogical goal is to explain diff-in-diff and other panel estimators, but as a
 
 \end{frame}
 
-
-\begin{frame}{Diff-in-Diff in the Cross-Section by Field}
-
-	\begin{figure}
-	\caption{Garg and Fetzer (2025)}
-	\includegraphics[scale=0.25]{./lecture_includes/did_growth2}
-	\end{figure}
-
-\end{frame}
-
-
-
 \begin{frame}{Diff-in-Diff Over Time}
 
 	\begin{figure}
@@ -153,7 +141,21 @@ Pedagogical goal is to explain diff-in-diff and other panel estimators, but as a
 \end{frame}
 
 
-\begin{frame}{Diff-in-Diff by Field}
+
+
+
+\begin{frame}{Diff-in-Diff in the Cross-Section by Field}
+
+	\begin{figure}
+	\caption{Garg and Fetzer (2025)}
+	\includegraphics[scale=0.25]{./lecture_includes/did_growth2}
+	\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Diff-in-Diff Over Time by Field}
 
 	\begin{figure}
 	\caption{Goldsmith-Pinkham (2024)}
@@ -271,6 +273,17 @@ Pedagogical goal is to explain diff-in-diff and other panel estimators, but as a
 \begin{eqnarray*}
 \widehat{\delta}_{did} = D + (\textcolor{red}{L_t}- SV_t)
 \end{eqnarray*}This method yields an unbiased estimate of D if $\textcolor{red}{L_t} = SV_t$, but note that $\textcolor{red}{L_t}$ is a counterfactual trend and therefore not known
+
+\end{frame}
+
+\begin{frame}{Will You Be Able to Spot the Problem by Friday?}
+
+\begin{itemize}
+\item Both of these have the correct \emph{calculation}
+\item \emph{But} one of them is robust to unrestricted heterogenous treatment effects but \emph{one of them is not}
+\item \textbf{Which one is robust and which one is not!?}
+\item On Friday, let's see who has figured out which one and most importantly \textbf{why}
+\end{itemize}
 
 \end{frame}
 
@@ -549,6 +562,21 @@ Again, first row is the target parameter, plus parallel trends term, \textcolor{
 
 \subsection{Clearly Defined Control Status}
 
+\begin{frame}{SUTVA}
+
+\begin{itemize}
+\item SUTVA: Stable Unit Treatment Value Assumption
+	\begin{enumerate}
+	\item \textbf{Most common understanding}: No interference between units
+	\item \textbf{Less well known}: No hidden variation in treatment
+	\end{enumerate}
+\item We usually focus on the "clearly defined treatment" but the counterfactual is also a treatment 
+\item Both the treatment is the same for all units, \emph{and also the control state} ("clearly defined control status")
+\item Because of diff-in-diff structure, it places a limit on what is possible with diff-in-diff
+\end{itemize}
+
+\end{frame}
+
 \begin{frame}{Clearly Defined Control Status}
 
 Look again at the result when you have NA and no treated control group:
@@ -557,7 +585,11 @@ Look again at the result when you have NA and no treated control group:
 \widehat{\delta} &=& \bigg ( E[Y^1_k|Post] - \textcolor{blue}{E[Y^0_k|Pre]} \bigg ) - \bigg ( E[Y^0_U | Post ] - \textcolor{blue}{E[ Y^0_U | Pre]} \bigg) \\
 \end{eqnarray*}
 
-What does the zero mean exactly?  At baseline, before $k$ was treated, it was in the $Y^0$ state of the world -- that wasn't "not treated", it was rather a different treatment status.  What was it?  Whatever it was, group $U$ had the same one
+\begin{itemize}
+\item Be explicit about the \textbf{0} just like you would be with the \textbf{1}
+\item For the diff-in-diff, note that assuming NA, $k$ at baseline was $Y^0$ -- what explicit alternative treatment status was this?  
+\item Whatever it was, that's what $U$ must be in both periods as we use $U$'s change in mean $Y^0$ to impute the missing $Y^0$ for our treatment group
+\end{itemize}
 
 \end{frame}
 
@@ -609,8 +641,8 @@ Make our substitutions
 $E[Y^1_k|Post]$ in both of the following cases is treated with recreational cannabis, but $Y^0$ is:
 
 \begin{enumerate}
-\item $ATT_1 = E[Y^1_k|Post] - \textcolor{red}{E[Y^0_k|Post]}$ where $Y^0$ is "treated with medical marijuana"
-\item $ATT_2 = E[Y^1_k|Post] - \textcolor{green}{E[Y^0_k|Post]}$ where $Y^0$ is "treated with prohibition"
+\item $ATT_1 = E[Y^{1=recreational}_k|Post] - \textcolor{red}{E[Y^{0=medical}_k|Post]}$ 
+\item $ATT_2 = E[Y^{1=recreational}_k|Post] - \textcolor{green}{E[Y^{0=prohibition}_k|Post]}$ 
 \end{enumerate}
 
 \bigskip
@@ -621,7 +653,7 @@ Do you think these \emph{must} be the same thing?  Why/why not?
 
 \bigskip
 
-What data do you need for $ATT_1$ vs $ATT_2$?
+What data do you need for $ATT_1$ vs $ATT_2$ when using diff-in-diff?  
 
 \end{frame}
 
@@ -630,16 +662,15 @@ What data do you need for $ATT_1$ vs $ATT_2$?
 \begin{frame}{Clearly Defined Control Status}
 
 \begin{eqnarray*}
-\widehat{\delta} &=& \underbrace{E[Y^1_k | Post] - \textcolor{red}{E[Y^0_k | Post]}}_{\mathclap{\text{ATT}}} \\
-&& + \bigg [  \underbrace{\textcolor{red}{E[Y^0_k | Post]} - E[\textcolor{blue}{Y^0_k} | Pre] \bigg ] - \bigg [ E[Y^0_U | Post] - E[\textcolor{blue}{Y_U^0} | Pre] }_{\mathclap{\text{Non-parallel trends bias in 2x2 case}}} \bigg ]
+\widehat{\delta} &=& \bigg ( E[Y^1_k|Post] - \textcolor{blue}{E[Y^0_k|Pre]} \bigg ) - \bigg ( \textcolor{blue}{E[Y^0_U | Post ]} - \textcolor{blue}{E[ Y^0_U | Pre]} \bigg) \\
 \end{eqnarray*}
 
 \begin{itemize}
-\item Diff-in-diff \emph{can} estimate the effect of recreational marijuana relative to prohibition so long as states transitioned from medical marijuana to recreational marijuana.  Why?
+\item Diff-in-diff \emph{can} can only identify $ATT_1$ if states transitioned from prohibition to recreational
 \pause
-\item Because of clearly defined control status, NA and parallel trends which is imputing counterfactuals
+\item In the US, that has never happened, which means we cannot in the US identify the average effect of recreational marijuana relative to prohibition
 \pause
-\item Therefore diff-in-diff can only identify $ATT_1$ (i.e., recreational cannabis vs medical marijuana) but not $ATT_2$ (i.e., recreational cannabis vs prohibition) \emph{in the US}
+\item We can only identify the effect of recreational marijuana relative to medical marijuana using diff-in-diff because the baseline in every case in the US is medical marijuana -- which means only $ATT_2$ is possible in US using diff-in-diff without strong assumptions
 \end{itemize}
 
 \end{frame}
@@ -648,13 +679,13 @@ What data do you need for $ATT_1$ vs $ATT_2$?
 \begin{frame}{Target Parameter}
 
 \begin{itemize}
-\item Matching and regression adjustment can technically estimate either $ATT_1$ or $ATT_2$ so long as its own assumptions hold (do you see why that is?)
 \item But diff-in-diff has a limitation that not all the other designs suffer from -- the control group \emph{must} have the same control status as the treatment group at baseline
 \item So you must decide ahead of time:
 	\begin{enumerate}
 	\item What is your target parameter and why?
 	\item Can you estimate it with diff-in-diff in your data?  How do you know?
 	\end{enumerate}
+\item Interestingly, matching and regression adjustment can estimate either $ATT_1$ or $ATT_2$ (but only under also strong assumptions called unconfoundedness)
 \end{itemize}
 
 \end{frame}
@@ -703,31 +734,11 @@ What data do you need for $ATT_1$ vs $ATT_2$?
 \end{frame}
 
 
-% Slide 2
-\begin{frame}{What is an Imbalanced Panel?}
-  \begin{itemize}
-    \item Balanced panel is when all units observed in every period.
-    \item Imbalanced panel is when units missing in some periods.
-		\begin{itemize}
-		\item Anthony is in waves 1-3,
-		\item Bob is in waves 1-3,
-		\item Inez is in waves 1 and 3 only,
-		\item Dignan is in waves 1 and 2 only
-		\end{itemize}
-    \item Missingness alone does not violate parallel trends, though it does change the parameter.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Example of Balanced ATE}
-  \centering
-  \includegraphics[height=0.85\textheight,keepaspectratio]{./lecture_includes/balanced.png}
-\end{frame}
-
 
 \begin{frame}{How does it change the parameter?}
 
 \begin{itemize}
-\item Remember -- in the potential outcomes framework, a treatment effect is defined at the individual level, $\delta_{it}$
+\item In the potential outcomes framework, a treatment effect is defined at the individual level, $\delta_{it}$
 \item So if you are missing a person, $i$,  in a period, $t$, then it does not contribute
 \item The more heterogeneity in the treatment effects, the more the broken panel will shift away from what you think you're after
 \end{itemize}
@@ -737,14 +748,14 @@ What data do you need for $ATT_1$ vs $ATT_2$?
 
 \begin{frame}{Imbalanced ATE}
 
-Let's work together on an example of the effect of imbalanced panels versus balancing imbalanced panels at \url{https://docs.google.com/spreadsheets/d/1onabpc14JdrGo6NFv0zCWo-nuWDLLV2L1qNogDT9SBw/edit?usp=sharing} ("Balancing")
+Let's work together on an example of the effect of imbalanced panels versus balancing imbalanced panels at \url{https://docs.google.com/spreadsheets/d/1sgFjJgKaD5ARhkQy2cg3-r_6LV8kheEJGc4rpEtcoMk/edit?usp=sharing} ("Imbalanced")
 
 \end{frame}
 
 % Slide 3
 \begin{frame}{Missing at Random (MAR)}
   \begin{itemize}
-    \item Wooldridge (201) notes that missing at random (MAR) does not bias estimates under large samples
+    \item Wooldridge (2010) notes that missing at random (MAR) does not bias estimates under large samples
     \item This is because missingness is independent of $E[\Delta Y^0]$, therefore parallel trends will still hold in the large sample.
     \item This is somewhat testable, too, because if MAR holds, then baseline covariates for the $M=1$ and $M=0$ groups should on average be the same 
     \item But maybe this is not plausible always so is there anything else we can do?
@@ -759,17 +770,24 @@ Let's work together on an example of the effect of imbalanced panels versus bala
     \item This implies:
     $$E[Y^0|M=1,X] = E[Y^0|M=0,X]$$
 	\item So you can impute $\widehat{Y^0}$ for missing units using $Y^0 \sim X$ with your non-missing data with a regression estimator
-	\item More needs to be done to think about the $Y^1$ imputation so I'll just focus on this for now
+	\item Stronger assumptions needed for $Y^1$ imputation 
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Conditional Missing at Random}
 
 \begin{itemize}
-    \item Note though -- this is a "missing based on observables" type of unconfoundedness assumption
-    \item You will need an overlap assumption or a functional form assumption for regression-based imputation
-    \item Should you assume it?  It is technically weaker than assuming MAR, and imputing missing yet real $Y$ seems far less problematic than imputing missing yet fictional $Y^0$
-    \item But are you sure you know the drivers of missingness in your data?
+    \item This is a "missing based on observables" type of unconfoundedness assumption
+	\begin{itemize}
+	    \item You will need an overlap assumption or a functional form assumption for regression-based imputation
+	    \end{itemize}
+    \item Should you impute missing potential outcomes?  
+    	\begin{itemize}
+	\item It is technically weaker than assuming MAR, 
+	\item We impute potential outcomes under conditional parallel trends as we'll see
+	\item Nonetheless, to economists this is likely controversial since it requires knowing the observable $X$ that determine missingness (and MAR is probably not plausible)
+	\end{itemize}
+    \item Tradeoffs: Leave imbalanced or impose balance, change parameter vs impute missingness under strong assumptions
 
 \end{itemize}
 
@@ -781,14 +799,16 @@ Let's work together on an example of the effect of imbalanced panels versus bala
 
 
 
-\begin{frame}{Choosing Target Parameter}
+\begin{frame}{Should You Weight Your Data by Population?}
 
 \begin{itemize}
-\item Causal parameters are \emph{averaged treatment effects} and that has two elements
+\item Causal parameters are \emph{averaged treatment effects} and that has three ingredients
 	\begin{itemize}
-	\item What population's treatment effects are you averaging
-	\item What weight are you using to do that averaging?
+	\item Treatment effects expressed as potential outcomes
+	\item Averaging treatment effects for a sub-population of units
+	\item Weights
 	\end{itemize}
+\item You only weight your data by population in order to identify a previously stated target parameter
 \item I'll use as an example a gun law in the United States called "concealed carry" or "right to carry" that lets people carry weapons "concealed" on their bodies or in their vehicles
 \end{itemize}
 
@@ -991,10 +1011,9 @@ ATE_p &=& \frac{(0.5 \times 8) + (-1 \times 2)}{8 + 2} \\
 \begin{frame}{Both Are Valid, But Not Necessarily Your Research Question}
 
 \begin{itemize}
-\item This has implications for what to learn from your dataset which is likely to be aggregated at some level (e.g., individual, city, county, state, country)
 \item Do you want to know the ATT for the \emph{average person} or the \emph{average county}?
 	\begin{itemize}
-	\item It depends on what your study is about
+	\item It depends on what your study is about, and it will absolutely matter for policy relevance, estimation and interpretability
 	\item If it about the average person, then you want the overall ATT (i.e., the first case)
 	\item If it is about the average county, then you want the county average ATT (i.e., the second case)
 	\end{itemize}
@@ -1008,24 +1027,15 @@ ATE_p &=& \frac{(0.5 \times 8) + (-1 \times 2)}{8 + 2} \\
 
 \begin{itemize}
 
-\item This means that even diff-in-diff has more than one ATT -- the \emph{average county} or \emph{average person}
-\item As a rule, I think your goal is probably to imagine who your audience is, and what you both agree the policy levers are
+\item As a rule, imagine who your audience is, and what you both agree the policy levers are
 \item In the US, local municipalities have a lot of discretion to pass their own laws -- even in areas where you might think it was impossible to imagine like the decriminalization of drugs
 \item It may be \emph{local} policy makers want to know the causal effect on \emph{local communities} in which case you \textbf{don't weight}
+\item If you are ever unsure, \emph{do both to avoid cherry picking} but \emph{be clear}.
 
 \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Choosing your ATT parameter}
-
-\begin{itemize}
-\item But the argument isn't to weight to make it nationally representative -- it's "is the average effect on the average county theoretically important, policy relevant and how one is planning to use it
-\item Others are also possible
-\item Quantile treatment effects (Athey and Imbens 2006; Callaway and Li 2019) and distribution regression target features of the marginal distributions of $Y^1_{i,t}$ and $Y^0_{i,t}$ (Fernandez-Val, Meier, van Vuuren and Vella 2024a)
-\end{itemize}
-
-\end{frame}
 
 \section{Four Means or One Regression?}
 
@@ -1035,69 +1045,16 @@ ATE_p &=& \frac{(0.5 \times 8) + (-1 \times 2)}{8 + 2} \\
 \begin{frame}{Why do Diff-in-Diff}
 
 \begin{itemize}
-\item Appeal of diff-in-diff has been its simplicity, its transparency, and its ease of conveying analysis to an audience
+\item Appeal of diff-in-diff has \emph{always} been its simplicity, its transparency, and its ease of conveying analysis to an audience
 	\begin{itemize}
-	\item Orley Ashenfelter used it in the 1970s to explain regressions with fixed effects to Bureaucrats in DC
+	\item Giovanni Mastrobuoni graduated from Princeton University in 2006 and studied with a famous labor economist named Orley Ashenfelter
+	\item Orley invented the term "difference-in-differences" used it in the 1970s to explain regressions with fixed effects to US Bureaucrats
 	\end{itemize}
 \item Diff-in-diff is four averages and three subtractions and everyone knows what those are
 $$\widehat{\textcolor{blue}{\delta}} = \bigg ( \overline{y}_k^{post(k)} - \overline{y}_k^{pre(k)} \bigg ) - \bigg ( \overline{y}_U^{post(k)} - \overline{y}_U^{pre(k)} \bigg ) $$
 \item But $\widehat{\delta}$ is just the OLS coefficient in this regression:
 $$Y_{ist} = \alpha_0 + \alpha_1 Treat_{is} + \alpha_2 Post_{t} + \textcolor{blue}{\delta} (Treat_{is} \times Post_t) + \varepsilon_{ist} $$
 \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Minimum wages}
-
-\begin{itemize}
-\item Card and Krueger (1994) have a famous study estimating causal effect of minimum wages on employment
-\item  New Jersey raises its minimum wage in April 1992 (between February and November) but neighboring Pennsylvania does not
-\item Using diff-in-diff, they do not find a negative effect of the minimum wage on employment leading to complex reactions from economists
-\end{itemize}
-
-\end{frame}
-
-
-
-
-
-\begin{frame}{OLS specification of the DiD equation}
-
-	\begin{itemize}
-	\item The correctly specified OLS regression is an interaction with time and group fixed effects:$$Y_{its} = \alpha + \gamma NJ_s + \lambda d_t + \delta (NJ \times d)_{st} + \varepsilon_{its}$$
-		\begin{itemize}
-		\item NJ is a dummy equal to 1 if the observation is from NJ
-		\item d is a dummy equal to 1 if the observation is from November (the post period)
-		\end{itemize}
-	\item This equation takes the following values
-		\begin{itemize}
-		\item PA Pre: $\alpha$
-		\item PA Post: $\alpha + \lambda$
-		\item NJ Pre: $\alpha + \gamma$
-		\item NJ Post: $\alpha + \gamma + \lambda + \delta$
-		\end{itemize}
-	\item DiD equation: (NJ Post - NJ Pre) - (PA Post - PA Pre) $= \delta$
-	\end{itemize}
-\end{frame}
-
-
-
-
-\begin{frame}[plain]
-	$$Y_{ist} = \alpha + \gamma NJ_s + \lambda d_t + \delta(NJ\times d)_{st} + \varepsilon_{ist}$$
-	\begin{figure}
-	\includegraphics[scale=0.90]{./lecture_includes/waldinger_dd_5.pdf}
-	\end{figure}
-\end{frame}
-
-
-\begin{frame}[plain]
-	$$Y_{ist} = \alpha + \gamma NJ_s + \lambda d_t + \delta(NJ\times d)_{st} + \varepsilon_{ist}$$
-	\begin{figure}
-	\includegraphics[scale=0.90]{./lecture_includes/waldinger_dd_5.pdf}
-	\end{figure}
-
-Notice how OLS is ``imputing'' $E[Y^0|D=1,Post]$ for the treatment group in the post period? It is only ``correct'', though, if parallel trends is a good approximation
 
 \end{frame}
 
@@ -1152,7 +1109,12 @@ Notice how OLS is ``imputing'' $E[Y^0|D=1,Post]$ for the treatment group in the 
 
 \begin{frame}{Equivalence}
 
-Please open \texttt{equivalence.do} and \texttt{equivalence.R} in ./Example-Code
+\begin{itemize}
+\item Please open \texttt{equivalence.do} and \texttt{equivalence.R} in ./Example-Code
+\item We will review these three "unweighted" regressions
+\item Can you figure out how to do the "weighted" regressions?
+
+\end{itemize}
 
 \end{frame}
 
