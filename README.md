@@ -83,12 +83,12 @@ Friday: Wrapping things up
 
 This repository contains:
 
-- `/slides/` – Lecture slides for each day  
-- `/code/` – Hands-on Stata and R code  
-- `/data/` – Sample datasets used during exercises  
 - `README.md` – This file  
-- `/references/` – Additional readings and papers
+- `/data/` – Sample datasets used during exercises  
+- `/labs/` – Various-labs with Stata and R code  
 - `/notes/` – Miscellaneous notes from class throughout the week
+- `/references/` – Additional readings and papers
+- `/slides/` – Lecture slides for each day (sometimes updated so always redownload each day)
 
 
 ---
