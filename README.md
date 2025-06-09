@@ -88,12 +88,14 @@ This repository contains:
 - `/data/` – Sample datasets used during exercises  
 - `README.md` – This file  
 - (Optional) `/references/` – Additional readings and papers
+- Google sheets: https://docs.google.com/spreadsheets/d/1sgFjJgKaD5ARhkQy2cg3-r_6LV8kheEJGc4rpEtcoMk/edit?usp=sharing
+
 
 ---
 
 ## Who Is This For?
 
-Social Science doctoral students working on diff-in-diff projects seeking to:
+Social Science (particularly economics) doctoral students working on diff-in-diff projects seeking to:
 
 - Understand when and how DiD assumptions break down
 - Learn how modern tools address those problems
@@ -106,6 +108,7 @@ Social Science doctoral students working on diff-in-diff projects seeking to:
 We’ll primarily use:
 - **Stata** (`csdid`, `drdid`, `eventstudyinteract`)
 - **R** (`did`, `fixest`, `synth`, `honestdid`)
+- **Google sheets** https://docs.google.com/spreadsheets/d/1sgFjJgKaD5ARhkQy2cg3-r_6LV8kheEJGc4rpEtcoMk/edit?usp=sharing
 
 Participants should be comfortable with basic regression and panel data structures but no prior experience with DiD is assumed.
 
