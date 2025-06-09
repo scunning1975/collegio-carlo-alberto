@@ -1,3 +1,4 @@
+\PassOptionsToPackage{table}{xcolor}
 \documentclass{beamer}
 
 \input{preamble.tex}
@@ -5,6 +6,7 @@
 
 \usepackage{amsmath}
 \usepackage{mathtools}
+
 
 \usepackage{pdfpages} % \includepdf
 
@@ -33,7 +35,13 @@
 
 \begin{document}
 
-\imageframe{./lecture_includes/mixtape_did_cover.png}
+\begin{frame}[plain]  % Removes header/footer and gives you full vertical control
+\vfill
+\begin{center}
+  \includegraphics[width=0.85\linewidth]{./lecture_includes/banner_cropped}
+\end{center}
+\vfill
+\end{frame}
 
 
 % ---- Content ----
@@ -41,7 +49,7 @@
 
 \section{Continuous DiD}
 
-\subsection{Motivation}
+\subsection{Dx2 and DxT}
 
 \begin{frame}{Continuous DiD}
 
@@ -58,7 +66,7 @@ $$Y_{it} = \alpha + \delta D_{it}  + \tau_t + \sigma_s + \varepsilon_{it}$$
 \end{frame}
 
 
-\begin{frame}{Quotes}
+\begin{frame}{Praise for OLS and Continuous Treatments}
 
 \begin{quote}
 ``The two-period regression estimator can be easily modified to allow for continuous, or at least non-binary, treatments.'' (Wooldridge 2005)
@@ -73,290 +81,45 @@ $$Y_{it} = \alpha + \delta D_{it}  + \tau_t + \sigma_s + \varepsilon_{it}$$
 
 \clearpage
 
-\begin{frame}{Continuous DiD}
-
-\begin{figure}
-\begin{center}
-             \includegraphics[scale=0.4]{./lecture_includes/continuous_did_image}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-\subsection{Misspecified Regressions}
 
 
-\begin{frame}{Overview}
+
+\begin{frame}{New Continuous DiD}
 
 \begin{enumerate}
-\item What of what we have learned carries forward to the continuous case?
-\item Some of the problems with continuous (maybe most) don't even have to do with differential timing, so I'm not going to cover it
+\item But new work suggests that the TWFE approach to continuous is problematic in light of unrestricted heterogenous treatment effects (Baker, et al. 2025)
+\item What of the 2x2 and 2xT will be relevant for dosage designs (Dx2 and DxT)?
+\item What is the target parameter, what new assumptions, what estimation methods, what control group?
 \end{enumerate}
 
 \end{frame}
 
-\begin{frame}{Recommended steps of causal projects}
 
-\begin{enumerate}
-\item Define the parameter we want (``ATT''), 
-\item Ask what what beliefs do you need (``identification''), and 
-\item Build cranks that produce the correct numbers (``estimator'')
-\end{enumerate}
 
-\bigskip
-
-People often skip 1 and 2 and go straight to 3 and run regressions then go back and assume exogeneity (step 2), and hope that the estimates are weighted averages of individual treatment effects (1), but that is not guaranteed
-
-\end{frame}
-
-\begin{frame}{Dangers of skipping 1 and 2}
+\begin{frame}{Continuous Literature in Causal Inference}
 
 \begin{itemize}
+\item Continuous treatments in instrumental variables (Angrist and Imbens 1995; Angrist, Graddy and Imbens 2000)
+\item Continuous instruments (Imbens and Angrist 1994; Heckman and Vytacil 2005)
+\item But the work on continuous diff-in-diff is newer (de Chaisemartin, et al. 2024; de Chaisemartin, et al. 2025; Callaway, Goodman-Bacon and Sant'Anna 2025)
+\item We will primarily focus on Callaway, Goodman-Bacon and Sant'Anna (2025) for the sake of time and focus
 
-\item TWFE was arguably a case where people skipped 1 and 2 and went straight to 3
-\item We now know that the ``constant treatment effect'' static specification does not recover the ATT under parallel trends, but the VWATT and requires no dynamics
-\item We can see this too in simulations even with matching and regression -- defining the parameter ahead of time then clearly indicates what assumptions to make, pushing into specifications
-\item Let's look at this now
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Data Generating Process}
-
-\begin{itemize}
-\item Covariate imbalance
-\item Heterogenous treatment effects with respect to covariates
-\item Linear data generating process
-\item Question: How do we estimate the ATE vs the ATT?
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Data Generating Process}
-\begin{itemize}
-\item Age is generated from a normal distribution:
-\begin{itemize}
-\item Treatment group: mean 25, standard deviation 2.5
-\item Control group: mean 30, standard deviation 3
-\end{itemize}
-\item GPA is generated from a normal distribution:
-\begin{itemize}
-\item Treatment group: mean 1.76, standard deviation 0.5
-\item Control group: mean 2.3, standard deviation 0.75
-\end{itemize}
-\item Age and GPA are centered around their respective means
-\item Squared terms and interaction terms are generated:
-\begin{itemize}
-\item Age squared (age_sq), GPA squared (gpa_sq)
-\item Interaction between age and GPA (interaction)
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Data Generating Process}
-\begin{itemize}
-\item Outcome variables are generated:
-\begin{itemize}
-\item No treatment (y0): $15000 + 10.25 \cdot \text{age} - 10.5 \cdot \text{age_sq} + 1000 \cdot \text{gpa} - 10.5 \cdot \text{gpa_sq} + 500 \cdot \text{interaction} + \epsilon$
-\item Treatment (y1): $y0 + 2500 + 100 \cdot \text{age} + 1000 \cdot \text{gpa}$
-\item Treatment effect (delta): $y1 - y0$
-\end{itemize}
-\item Average treatment effect (ATE) is estimated at 2500
-\item Average treatment effect on the treated (ATT) is estimated at 1971
-\end{itemize}
-\end{frame}
-
-
-
-
-
-
-
-\begin{frame}{Covariate imbalance (expressed as propensity score)}
-
-\begin{figure}
-\begin{center}
-             \includegraphics[scale=0.1]{./lecture_includes/covariate_imbalance.jpg}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-
-
-
-
-\begin{frame}{Regression specifications 1 and 2}
-
-We will look at several different specifications.  These first two are standard ways of incorporating covariates. You enter them in linearly as controls. 
-
-\begin{eqnarray}
-\text{earnings} &=& \beta_0 + \beta_1 \text{treat} + \beta_2 \text{age} + \beta_3 \text{gpa} + \epsilon \\
-\text{earnings} &=& \beta_0 + \beta_1 \text{treat} + \beta_2 \text{age} + \beta_3 \text{age\_sq} + \beta_4 \text{gpa} \nonumber \\
-&&+ \beta_5 \text{gpa\_sq} + \beta_6 (\text{gpa} \times \text{age}) + \epsilon 
-\end{eqnarray}
-
-\bigskip
-
-Interpretation focuses on $\widehat{\beta_1}$.  But what does it mean?  Look at top two.  Remember ATE is 2500.
-
-\end{frame}
-
-\begin{frame}{ATE estimates across different specifications}
-
-\begin{figure}
-\begin{center}
-             \includegraphics[scale=0.1]{./lecture_includes/combined_kernels_ate.jpg}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-
-\begin{frame}{ATT Calculation: Regression 3}
-\tiny
-
-Saturated regressions: interact treatment dummy with all covariates. 
-
-\begin{itemize}
-\item Regression Specification:
-\begin{eqnarray*}
-\text{earnings} &=& \beta_0 + \beta_{1t} \text{treat} + \beta_{2a} \text{age} + \beta_{3g} \text{gpa} + \beta_{4ta} (\text{treat} \times \text{age}) + \beta_{5tg} (\text{treat} \times \text{gpa}) + \beta_{6age} (\text{age} \times \text{gpa})  \nonumber \\
-&&+ \beta_{6tag} (\text{treat} \times \text{age} \times \text{gpa}) + \epsilon
-\end{eqnarray*}
-
-\bigskip
-
-Estimated ATE is the coefficient, $\widehat{\beta_{1t}}$, but how do we get the estimated ATT?
-
-\item Calculating ATT:
-\begin{equation*}
-    \text{ATT}_3 = \beta_{1t} + \beta_{4ta} \cdot \bar{\text{age}} + \beta_{5tg} \cdot \bar{\text{gpa}} + \beta_{6tag} \cdot \bar{\text{age}} \cdot \bar{\text{gpa}}
-\end{equation*}using the means of all covariates
-
-\end{itemize}
-\end{frame}
-
-\begin{frame}{ATT Calculation: Regression 4}
-
-
-\tiny 
-Saturated regressions: interact it with covariates, higher order polynomials, and all interactions
-
-
-\begin{itemize}
-\item Regression Specification:
-\begin{eqnarray*}
-\text{earnings} &=& \beta_0 + \beta_{1t} \text{treat} + \beta_{2a} \text{age} + \beta_{3a_sq} \text{age_sq} + \beta_{4g} \text{gpa} + \beta_{5g_sq} \text{gpa_sq} + \\
-&& \beta_{6ta} (\text{treat} \times \text{age}) + \beta_{7ta_sq} (\text{treat} \times \text{age_sq}) + \beta_{8tg} (\text{treat} \times \text{gpa}) + \\
-&& \beta_{9tg_sq} (\text{treat} \times \text{gpa_sq}) + \beta_{10ag} (\text{age} \times \text{gpa}) + \beta_{11a_sqg} (\text{age_sq} \times \text{gpa}) + \\
-&& \beta_{12ag_sq} (\text{age} \times \text{gpa_sq}) + \beta_{13a_sqg_sq} (\text{age_sq} \times \text{gpa_sq}) + \epsilon
-\end{eqnarray*}
-
-\bigskip
-
-Estimated ATE is the coefficient, $\widehat{\beta_{1t}}$, but how do we get the estimated ATT?
-
-\item Calculating ATT:
-\begin{eqnarray*}
-\text{earnings} &=& \beta_0 + \beta_{1t} \text{treat} + \beta_{2a} \text{age} + \beta_{3a\_sq} \text{age\_sq} + \beta_{4g} \text{gpa} + \beta_{5g\_sq} \text{gpa\_sq} + \beta_{6ta} (\text{treat} \times \text{age})  \nonumber \\ 
-&&+ \beta_{7ta\_sq} (\text{treat} \times \text{age\_sq}) + \beta_{8tg} (\text{treat} \times \text{gpa}) + \beta_{9tg\_sq} (\text{treat} \times \text{gpa\_sq}) + \beta_{10ag} (\text{age} \times \text{gpa})  \nonumber \\
-&&+ \beta_{11a\_sqg} (\text{age\_sq} \times \text{gpa}) + \beta_{12ag\_sq} (\text{age} \times \text{gpa\_sq}) + \beta_{13a\_sqg\_sq} (\text{age\_sq} \times \text{gpa\_sq}) + \epsilon
-\end{eqnarray*}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Interpretations}
-
-\begin{itemize}
-\item ATE is 2500
-\item ATT is 1980
-\item Key point here: the same regression contains both parameters, but only when done correctly, and only when interpreted correctly
 \end{itemize}
 
 \end{frame}
 
 
-
-
-\begin{frame}{ATE estimates across different specifications}
-
-\begin{figure}
-\begin{center}
-             \includegraphics[scale=0.1]{./lecture_includes/combined_kernels_ate.jpg}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-
-
-\begin{frame}{ATT estimates across different specifications}
-
-\begin{figure}
-\begin{center}
-             \includegraphics[scale=0.1]{./lecture_includes/combined_kernels_att.jpg}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-
-\begin{frame}{Matching by minimizing Maha distance metric}
-
-\begin{itemize}
-\item Next I just estimated the ATT using a simpler model -- nonparametric matching using Abadie and Imbens (2006;2011)
-\item It's biased when the matches aren't exact, but you can use regression adjustment to estimate the selection bias
-\item Similar to what augmented synth does 
-\item Much less difficult syntax
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{ATT estimates across different matching specifications}
-
-\begin{figure}
-\begin{center}
-             \includegraphics[scale=0.1]{./lecture_includes/combined_kernels_maha.jpg}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-
-\begin{frame}{Recommended steps of causal projects}
-
-\begin{enumerate}
-\item Define the parameter we want (``ATT''), 
-\item Ask what what beliefs do you need (``identification''), and 
-\item Build cranks that produce the correct numbers (``estimator'')
-\end{enumerate}
-
-\bigskip
-
-See how when we skep 1 and 2 and go straight to 3, heterogenous treatment effects makes major problems for interpretation?  It isn't that regressions can't recover parameters, but you have to saturate when you're attempting to recover ATE or ATT, and even then it's challenging to interpret -- and programming, you often don't have code that will do it for you.
-
-\end{frame}
-
-
-
-\subsection{Average causal response functions}
-
-
-\begin{frame}{Introducing a new causal parameter}
+\begin{frame}{Average causal response functions}
 
 
 
 \begin{itemize}
-\item \textbf{ATT}: Extensive margin causal parameter.  Do this versus don't do this.
-\item \textbf{Dose}: Intensive margin causal parameter.  Do this much versus this much.
+\item \textbf{ATT}: Average effect for a binary treatment on a sub-population of treated units after they were treated
+\item \textbf{Dose}: Treatment is not binary but rather multi-valued or continuous.  Represents either ATTs for groups at dosages, or movements along a dosage curve -- not the same thing as it turns out
 \end{itemize}
 
-\bigskip
-
-The dose causal parameter will be based on Angrist and Imbens (1995)
-
 \end{frame}
+
 
 
 
@@ -383,16 +146,6 @@ $ATT(d|d) = E[Y^d_{it} - Y^0_{it} | D_{it}=d]$
 \bigskip
 
 This is ``the ATT of $d$ for the groups that chose $d$ dosage'' which uses as its comparison no dose.
-
-\end{frame}
-
-\begin{frame}{Average causal response function}
-
-\begin{figure}
-\begin{center}
-             \includegraphics[scale=0.3]{./lecture_includes/angrist_imbens_IV_intensity}
-\end{center}
-\end{figure}
 
 \end{frame}
 
@@ -805,6 +558,588 @@ We discuss an alternative but typically stronger assumption, which we call stron
     \end{itemize}
 \end{itemize}
 \end{frame}
+
+\end{document}
+
+\section{Kyle}
+
+\begin{frame}{Setup}
+  Individuals are observed in two periods ($t = 0, 1$)
+
+  \bigskip
+  Treatment turns on in the second period for some units
+  \begin{itemize}
+    \item The untreated group receives no dose, $D_i = 0$
+
+    \item The treated group receives a dose $D_i > 0$
+  \end{itemize}
+
+  \bigskip
+  How do you do difference-in-differences in this setup?
+\end{frame}
+
+% \begin{frame}{Aside: Alternate `continuous treatment'}
+%   Alternatively, you might have a setting where you have some key variable $D_{it}$ that can vary over time.
+%   \begin{itemize}
+%     \item E.g. minimum wage changes
+%   \end{itemize}
+%
+%   \bigskip
+%   Happy to discuss, but going to focus on the former
+%
+%   % TODO: Discuss this more; can give tariff example of "transforming into the above setup"
+% \end{frame}
+
+\subsection{Discrete multi-valued}
+
+\begin{frame}{Initial Example}
+  Let's work through an example to illustrate what's novel in this setting...
+
+  \bigskip
+  There are a set of patients who sign up for an experimental medicine.
+
+  They are either not accepted (receive 0mg) or accepted into the program and allowed a positive dose
+  \begin{itemize}
+    \item Doctor drugs 0mg, 10mg, 20mg
+  \end{itemize}
+
+  % TODO: Discuss parallel trends
+\end{frame}
+
+\begin{frame}{Estimating effects for each dose group}
+  We have three groups:
+  \begin{enumerate}
+    \item The `untreated' group who received 0mg
+
+    \item The `10mg' group
+
+    \item The `20mg' group
+  \end{enumerate}
+
+  \bigskip
+  The simplest thing to do is to treat the `10mg' and `20mg' group as two treatments and compare both to the `untreated' group
+\end{frame}
+
+\begin{frame}{First-differences}
+  The rest of the slides will focus on \emph{first-differences}:
+  $$
+    \Delta y_i \equiv y_{i1} - y_{i0}
+  $$
+
+  \bigskip
+  Parallel counterfactual trends assumption says that $\Delta y_i$ would be on average the same for the `10mg' and the untreated group \emph{in the absence of treatment}
+  \begin{itemize}
+    \item Similarly when looking at the `20mg' group
+  \end{itemize}
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/discrete_raw_first_differences.pdf}
+
+\begin{frame}{Diff-in-Diff}
+  Our diff-in-diff estimate is formed as:
+  $$
+    \hat{\tau}_{10} = E[ \Delta Y_i}{D_i = 10}] - E[ \Delta Y_i}{D_i = 0} ]
+  $$
+  and
+  $$
+    \hat{\tau}_{20} = E [\Delta Y_i}{D_i = 20} - E [\Delta Y_i}{D_i = 0}]
+  $$
+
+  \bigskip
+  In both cases, we use the untreated group to estimate the counterfactual trend
+  \begin{itemize}
+    \item $E[ \Delta Y_i}{D_i = 0}]$ is what we think the change in outcomes would have been in the absence of treatment for the treated unit
+  \end{itemize}
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/discrete_implied_counterfactual.pdf}
+\imageframe{lecture_includes/continuous_did/discrete_did_estimates.pdf}
+
+\begin{frame}{Estimates}
+  The previous figure shows two difference estimates of $\hat{\tau}_{10}$ and $\hat{\tau}_{20}$
+  \begin{itemize}
+    \item The 20mg group has a higher estimated treatment effect than the 10mg group. What can we conclude from that?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ATT Estimates}
+  To understand this, let's remember the discussion of ATT vs. ATE
+
+  \begin{itemize}
+    \item In the binary DID case, we estimate the average treatment effect \emph{among those who received treatment}
+  \end{itemize}
+
+  \bigskip
+  Another way of writing the ATT estimate that will prove useful is
+  $$
+    ATT \equiv E[Y_{i1}(1) - Y_{i1}(0)}{D_i = 1}]
+  $$
+
+  \begin{itemize}
+    \item The $\ |\ D_i = 1$ says we are averaging for the group whose treatment was $D_i = 1$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ATT Estimates}
+  \vspace{-\bigskipamount}
+  $$
+    ATT \equiv E[Y_{i1}(1) - Y_{i1}(0)}{D_i = 1}]
+  $$
+
+  \bigskip
+  Why might the ATT be different than the ATE?
+
+  \pause
+  \bigskip
+  The usual ``selection on $Y(1)$'' story
+  \begin{itemize}
+    \item Maybe units that benefit most from treatment select into it
+
+    \pause
+    \item But, not parallel trends rule out a lot of the $Y(0)$ stories
+    \begin{itemize}
+      \item E.g. Units can not select into treatment because of negative shocks
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{``ATT'' in continuous DID}
+  The concept of ATT vs. ATE is the same, but now there is no single `the treated'. Instead, there are two treated groups!
+
+  There are now many different potential outcomes
+  $$
+    Y_{i1}(d),
+  $$
+
+  for $d = 0, 10, 20$
+  \begin{itemize}
+    \item What the outcome would be had the unit taken 0mg, 10mg, or 20mg
+
+    \item We only observe on potential outcome $Y_{i1}(D_i)$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Treatment effects}
+  We might care about the average effect of moving from 0 to some level $d > 0$:
+  $$
+    Y_{i1}(d) - Y_{i1}(0)
+  $$
+
+  \bigskip
+  Or, we might want to know about the effect of increasing someone's dose from $d \to d'$
+  $$
+    Y_{i1}(d') - Y_{i1}(d)
+  $$
+
+  \begin{itemize}
+    \item E.g. doctors wonder about increasing someone's dose to the next level
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{What did our two diff-in-diff estimates identify?}
+  So what do we call the `ATT'? $\text{ATT}_{10}$ and $\text{ATT}_{20}$ perhaps?
+
+  \bigskip\bigskip
+  Callaway, Goodman-Bacon, and Sant'Anna call this:
+  $$
+    \text{ATT}(d \ \vert \ d) = E[{Y_{i1}(d) - Y_{i1}(0)}{D_i = d}]
+  $$
+
+  \begin{itemize}
+    \item Our diff-in-diff's can only estimate the effect of a certain dose \emph{among the units that received that dose}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\text{ATT}(d \ \vert \ d)$}
+  These dose-specific ATTs are identified from the same parallel trends assumption we are used to:
+  \begin{itemize}
+    \item Had the units receiving dose $D_i = d$ not received any dose $D_i = 0$, their trend in $Y$ would have evolved the same as the untreated units.
+  \end{itemize}
+
+  \bigskip
+  The good news. We know how to think about the parallel trends assumption
+  \begin{itemize}
+    \item can potentially assess this assumption using pre-trends placebo checks
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Comparing estimates}
+  We observe a set of $\text{ATT}(d \ | \ d)$ for a set of doses (in our example $10$ and $20$)
+
+  \bigskip
+  The initial temptation is to compare these two estimates:
+  \begin{itemize}
+    \item E.g. finding the `correct' dose of a medicine by picking the highest $\text{ATT}$
+
+    \item E.g. finding diminishing returns on an treatment investment
+
+    \item E.g. what is the `per-unit' effect of the treatment?
+  \end{itemize}
+\end{frame}
+%
+% \begin{frame}{Thinking about counterfactual treatment effects}
+%   We want to think about what would happen if one group of units received a \emph{different} dose?
+%
+%   \bigskip
+%   $$
+%     \text{ATT}(\tcbhighmath[colback = bgBlue]{d'} \ | \ \tcbhighmath[colback = bgPurple]{d}) =
+%       \expec{Y_{i1}(\tcbhighmath[colback = bgBlue]{d'}) - Y_{i1}(0)}{D_i = \tcbhighmath[colback = bgPurple]{d}}
+%   $$
+%
+%   % \devgrid
+%   \begin{tikzpicture}[remember picture, overlay]
+%     \node [anchor = south, text width = 0.4\textwidth] at (page cs:0.5,0.43) {
+%       \begin{center}
+%         \setstretch{0.8}
+%         {\footnotesize\color{alice} Hypothetical dose}
+%       \end{center}
+%     };
+%
+%     \node [anchor = north, text width = 0.35\textwidth] at (page cs:0.75,0.48) {
+%       \begin{center}
+%         \setstretch{0.8}
+%         {\footnotesize\color{purple} Dose they \emph{actually received}}
+%       \end{center}
+%     };
+%   \end{tikzpicture}
+% \end{frame}
+
+\begin{frame}{Thinking about counterfactual treatment effects}
+  We want to think about what would happen if one group of units received a \emph{different} dose?
+
+  \bigskip
+  One example is what Callaway, Goodman-Bacon, and Sant'Anna call the \alert{Average Causal Response}, $\text{ACRT}(d' \ | \ d)$:
+
+  \bigskip\smallskip
+  $$
+    \text{ACRT}(\tcbhighmath[colback = bgBlue]{d'} \ | \ \tcbhighmath[colback = bgPurple]{d}) =
+      \expec{\tcbhighmath[colback = bgBlue]{Y_{i1}(d' + \varepsilon) - Y_{i1}(d')}}{\tcbhighmath[colback = bgPurple]{D_i = d}}
+  $$
+
+  % \devgrid
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [anchor = south, text width = 0.4\textwidth] at (page cs:0.56,0.52) {
+      \begin{center}
+        \setstretch{0.8}
+        {\footnotesize\color{alice} Effect of increasing dose by a little}
+      \end{center}
+    };
+
+    \node [anchor = north, text width = 0.35\textwidth] at (page cs:0.77,0.57) {
+      \begin{center}
+        \setstretch{0.8}
+        {\footnotesize\color{purple} For the group that received $d$}
+      \end{center}
+    };
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Average Causal Response}
+  \vspace*{-\bigskipamount}
+  $$
+    \text{ACRT}(\tcbhighmath[colback = bgBlue]{d'} \ | \ \tcbhighmath[colback = bgPurple]{d}) =
+      \expec{\tcbhighmath[colback = bgBlue]{Y_{i1}(d' + 1) - Y_{i1}(d')}}{\tcbhighmath[colback = bgPurple]{D_i = d}}
+  $$
+
+  \begin{itemize}
+    \item This measures the `per-unit' effect of the treatment (at some starting point $d'$)
+
+    \item The effect is averaged over the group of units that received treatment $D_i = d$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Average Causal Response}
+  \vspace*{-\bigskipamount}
+  $$
+    \text{ACRT}(\tcbhighmath[colback = bgBlue]{d'} \ | \ \tcbhighmath[colback = bgPurple]{d'}) =
+      \expec{\tcbhighmath[colback = bgBlue]{Y_{i1}(d' + 1) - Y_{i1}(d')}}{\tcbhighmath[colback = bgPurple]{D_i = d'}}
+  $$
+
+  \bigskip
+  Could imagine estimating this using our two $\text{ATT}(d \ | \ d)$:
+
+  $$
+    \text{ACRT}(d_1 \ | \ d_1) \approx \frac{\text{ATT}(d_2 \ | \ d_2) - \text{ATT}(d_1 \ | \ d_1)}{d_2 - d_1}
+  $$
+\end{frame}
+
+\begin{frame}{Thinking about counterfactual treatment effects}
+  Note that two things change whe we move from $d_1$ to $d_2$
+  \begin{itemize}
+    \item The dose amount they receive
+
+    \item And the group of units we are estimating ATTs for
+  \end{itemize}
+
+  \bigskip
+  The latter is what creates difficulty:
+  \begin{itemize}
+    \item If the group of units receiving treatment at $d_1$ is different than the group receiving treatment at $d_2$, then the ATTs are not directly comparable
+  \end{itemize}
+
+  \pause
+  \bigskip
+  Let's dig into this out with our example...
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/discrete_te_plot.pdf}
+
+\begin{frame}{Homogeneous dose-ATTs}
+  On the one extreme, we have homogeneity of treatment effects:
+  $$
+    \text{ATT}(d'  \ | \ d) = \text{ATT}(d')
+  $$
+
+  \begin{itemize}
+    \item Treatment effects can depend on dose amount $d'$, but not on which treatment dose-group you are looking at
+  \end{itemize}
+
+  \pause
+  \bigskip\bigskip
+  This let's you directly compare $\text{ATT}(d'  \ | \ d')$ and $\text{ATT}(d \ | \ d)$ to estimate $\text{ACRT}(d' \ | \ d) = \text{ACRT}(d')$
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/discrete_te_linear_homogenous.pdf}
+\imageframe{lecture_includes/continuous_did/discrete_te_linear_het.pdf}
+\imageframe{lecture_includes/continuous_did/discrete_te_constant.pdf}
+\imageframe{lecture_includes/continuous_did/discrete_te_maximizing.pdf}
+
+% \begin{frame}{TWFE Regression}
+%   What happens when you run the TWFE regression
+%   $$
+%     y_{it} = \tau D_{it} + \gamma_i + \delta_t + \epsilon_{it}
+%   $$
+%
+%   \begin{itemize}
+%     \item Regression compares people with larger and smaller doses of treatment
+%
+%     \item When making that comparison, you are not moving along any particular group's dose response curve
+%   \end{itemize}
+%
+%   \bigskip
+%   Assume this away (or that heterogeneity is `small')
+% \end{frame}
+
+
+\begin{frame}{Recap}
+  So as a recap:
+
+  \bigskip
+  {\color{picton-blue} 1.} Dose-group specific DID estimates identify the $\text{ATT}(d \ | \ d)$ effects
+
+  \bigskip
+  {\color{picton-blue} 2.} Comparing across different doses does not inform us of the marginal effect of changing a dose, the $\text{ACR}(d \ | \ d)$
+\end{frame}
+
+\begin{frame}{``Strong Parallel Trends''}
+  In Callaway, Goodman-Bacon, and Sant'Anna, they refer to an assumption called ``Strong Parallel Trends'' which combines two assumptions:
+  \begin{enumerate}
+    \item The parallel counterfactual trends assumption: each dose group has the same counterfactual trends as the untreated group
+    \item Treatment effect homogeneity across groups: $\text{ATT}(d \ | \ d) = \text{ATT}(d)$
+    \begin{itemize}
+      \item $\implies \text{ACR}(d \ | \ d) = \text{ACR}(d)$
+    \end{itemize}
+  \end{enumerate}
+
+  \pause
+  \bigskip
+  The latter is only needed to identify the $\text{ACR}$ curve using your $\text{ATT}(d \ | \ d)$ estimates
+\end{frame}
+
+
+\subsection{Continuous valued dose}
+
+\begin{frame}{Doctor example extended}
+  Now, let's say we have a continuous distribution of doses
+  \begin{itemize}
+    \item Some units receive 0mg
+    \item Others receive some amount between 0 and 20mg
+  \end{itemize}
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/continuous_raw_first_differences.pdf}
+
+\begin{frame}{Dose-specific DID estimates}
+  Our previous method of having dose-specific DID estimates will be quite noisy in this setting
+  \begin{itemize}
+    \item Very few individuals with the \emph{same} dose
+
+    \item Throwing out information of individuals with very similar dose
+  \end{itemize}
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/continuous_did_estimates.pdf}
+
+\begin{frame}{Alternative strategies}
+  Our previous strategy clearly will not suffice
+
+  \bigskip
+  An alternative strategy is to \emph{pool} observations with similar doses to estimate an average $\expec{\Delta Y_i}{D_i = d}$
+  \begin{itemize}
+    \item E.g. say you break doses into 2mg bins (0--2, 2--4, etc.) and take averages in those bins
+
+    \item Or any other of your favorite non-parametric method for estimating
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\text{ATT}(d \ | \ d)$ estimators}
+  In general, the $\text{ATT}(d \ | \ d)$ estimators will take the form of
+  $$
+    \expechat{\Delta Y_i}{D_i = d} - \expechat{\Delta Y_i}{D_i = 0}
+  $$
+
+  \begin{itemize}
+    \item The second term is just the average change in $Y$ from the control group
+
+    \item The first-term is where we have some options
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Option 1: Bins}
+  The simplest procedure is to `discretize' doses into a set of bins
+
+  \bigskip
+  Then, form a DID estimate for each bin
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/continuous_binned_avgs.pdf}
+
+\begin{frame}{Pros and Cons of Bins}
+  Advantges:
+  \begin{itemize}
+    \item Creates a discrete set of groups that are easy to discuss in your paper
+
+    \item Event-studies are easy to estimate (one for each bin)
+  \end{itemize}
+
+  \bigskip
+  Disadvantages:
+  \begin{itemize}
+    \item Bins create a flat surface that is likely not perfectly specified (but gets close as the number of bins grow)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Option 2: Non-parametric smoothing}
+  Alternatively, $\expechat{\Delta Y_i}{D_i = d}$ can be estimated with non-parametric methods
+
+  \bigskip
+  The simplest way is to use non-parametric method on $\Delta Y_i - \expechat{\Delta Y_i}{D_i = 0}$ with only the $D_i > 0$ observations.
+  \begin{itemize}
+    \item The result of this will be the DID estimates
+
+    \item Standard errors produced should be correct (can always bootstrap to be safe)
+  \end{itemize}
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/continuous_smoothed_avgs.pdf}
+
+\begin{frame}{Pros and Cons of Non-parametric smoothing}
+  Advantges:
+  \begin{itemize}
+    \item Better estimates the smooth evolution of $\expechat{\Delta Y_i}{D_i = d}$
+  \end{itemize}
+
+  \bigskip
+  Disadvantages:
+  \begin{itemize}
+    \item Event-studies are hard to display (one plot for each event-time?)
+  \end{itemize}
+\end{frame}
+
+
+\section{Empirical Example}
+
+\begin{frame}{Lu and Yu, 2015}
+  This example will use data from
+  ``Trade Liberalization and Markup Dispersion: Evidence from China's WTO Accession'' (Lu and Yu, American Economic Journal: Applied Economics 2015)
+\end{frame}
+
+\begin{frame}{China's WTO Ascension}
+  The paper uses the entrance of China into the World Trade Organization (WTO) in 2002
+
+  \bigskip
+  When entering the WTO, tariffs at the industry level were expected to drop to at most 10\%
+\end{frame}
+
+\begin{frame}{Defining continuous treatment variable}
+  The research strategy is to compare industries (at the 3-digit SIC level) that had higher or lower pre-existing tariff rates
+
+  \begin{itemize}
+    \item After the entrance in 2002, industries with higher tariff had \emph{larger} decreases in tariffs $\implies$ a larger shock in import competition
+  \end{itemize}
+
+  \bigskip
+  Can define treatment as
+  $D_i = \max (0, \text{Tariff}_{2001} - 0.10)$
+  \begin{itemize}
+    \item How much tariffs are expected to drop
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Outcome variable: Markup Dispersion}
+  The dataset is an industry-by-year panel dataset
+  \begin{itemize}
+    \item Each row is an industry in China in a given year
+  \end{itemize}
+
+  \bigskip
+  The outcome variable is the industry-level \emph{Theil Markup Index}, which measures how much spread in markups at the firm level
+  \begin{itemize}
+    \item Higher markup index $\implies$ less competitive market
+  \end{itemize}
+
+  \pause
+  \bigskip
+  \textbf{Hypothesis:} Larger decrease in tariffs $\implies$ more competition $\implies$ decrease in markup dispersion
+\end{frame}
+
+\begin{frame}{$2 \times 2$ setup}
+  We will use 2000 ($t = 0$) and 2004 ($t = 1$) as our initial years
+
+  \bigskip
+  Let's look at the raw data
+  \begin{itemize}
+    \item $x$-axis is our treatment vairable $D_i = \max (0, \text{Tariff}_{2001} - 0.10)$
+
+    \item $y$-axis is the change in markup dispersion $\Delta \ln \text{Theil}_i = \ln \text{Theil}_{i, 2004} - \ln \text{Theil}_{i, 2000}$
+  \end{itemize}
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/china_wto_raw.pdf}
+
+\begin{frame}{Parallel Trends assumption}
+  Our identification assumption is that if China did not enter the WTO, counterfactual changes in markup dispersion is the same for the unaffected group and the affected doses
+
+  \begin{itemize}
+    \item We can assess the plausability using pre-periods (later)
+  \end{itemize}
+
+  \pause
+  \bigskip\bigskip
+  To estimate counterfactual trend, we will take average $\Delta \ln \text{Theil}_i$ for the $D_i = 0$ group
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/china_wto_raw.pdf}
+
+\imageframe{lecture_includes/continuous_did/china_wto_ests.pdf}
+
+\begin{frame}{Pre-trends `test'}
+  Redo the previous estimates using
+  $$
+    \Delta \ln \text{Theil}_i = \ln \text{Theil}_{i, 1998} - \ln \text{Theil}_{i, 2000}
+  $$
+
+  \bigskip
+  We are hoping that the pre-trend change in markup dispersion is uncorrelated with the dose received, $D_i$
+\end{frame}
+
+\imageframe{lecture_includes/continuous_did/china_wto_pretrends_ests.pdf}
+
+
+
 
 
 
