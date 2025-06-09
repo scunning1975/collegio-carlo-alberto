@@ -1,6 +1,6 @@
 # Collegio Carlo Alberto on Applied Causal Panel Methods
 
-Welcome to the materials for the **Collegio Carlo Alberto on Applied Causal Panel Methods**, a weeklong intensive course (9:00–16:00 daily) focused on advanced techniques for estimating causal effects in panel data.
+Welcome to the materials for the **Collegio Carlo Alberto on Applied Causal Panel Methods**, a weeklong intensive course (9:00–16:00 daily) focused on estimation, interpretation, application and trouble shooting with advanced techniques for estimating causal effects in panel data.  
 
 ---
 
@@ -13,6 +13,8 @@ This workshop introduces and explores some of the most important modern methods 
 - Aggregation, weighting, covariates and parallel trends diagnostics
 - Recent innovations like CS, SA, DCDH, Honest DiD
 - Heavy emphasis on application, interpretation, and implementation, as well as trouble shooting
+
+This class is a follow-up to Juan F. Vargas recent panel methods class.  The purpose of this course is a part 2 in that we will focus on interpretation issues within both the common diff-in-diff methods which are often confused by software syntax, as well as subtle issues regarding weighting in aggregate data.  We will also cover some new material such as addressing problematic compositional changes in repeated cross sections and continuous difference-in-differences.  Together we will work on a week-long coding exercise involving data from Cheng and Hoekstra (2013) castle doctrine reform paper in the *JHR*, as well as implement your own project related to the castle doctrine reform outside of class.  While some of this is review, our focus is to better prepare you for your own research via an intense of "checklist design" and overall greater credibility and assurance in your own projects.
 
 ---
 
@@ -58,6 +60,7 @@ Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT
 Wednesday: Introducing Differential Timing (GxT)
 - Reviewing Bacon decomposition of TWFE
 - Reviewing Callaway & Sant’Anna with simulation
+- Calculating event study plots using long differences (traditional) versus "short gaps" (non-traditional) 
 - Craigslist case study
 
 Thursday: More on Differential Timing
@@ -65,7 +68,7 @@ Thursday: More on Differential Timing
 - Borusyak et al., two-stage diff-in-diff, 
 - Honest DiD
 - Castle Doctrine coding exercise
-- Continuous DiD and revisiting the abortion clinic closures 
+- Continuous DiD (DxT) and revisiting the abortion clinic closures 
 
 Friday: Reviewing concealed carry together
 
@@ -85,7 +88,7 @@ This repository contains:
 
 ## Who Is This For?
 
-Economists, data scientists, policy analysts, and researchers working with longitudinal or panel data who want to:
+Social Science doctoral students working on diff-in-diff projects seeking to:
 
 - Understand when and how DiD assumptions break down
 - Learn how modern tools address those problems
