@@ -48,55 +48,58 @@
 
 \subsection{Event Study Plots}
 
-\begin{frame}{Unconditional Parallel Trends}
+\begin{frame}{Different parallel trends assumptions}
 
 \begin{itemize}
-\item Unconditional parallel trends is diff-in-diff on $Y^0$ in which the diff-in-diff equals zero
-	$$\textcolor{red}{\Delta E[Y^0|D=1]} - \Delta E[Y^0|D=0] = 0$$
-\item There are two kinds of parallel trends: unconditional and conditional
-\item What is the difference between them?
-\end{itemize}
-
-
-\end{frame}
-
-
-
-\begin{frame}{Unconditional Parallel Trends}
-
-\begin{itemize}
-\item Unconditional parallel trends is very close to assuming that the the treatment was as good as random
-\item It is not testable, but suspicion is raised when pre-treatment levels are very different as that implies non-random treatment assignment mechanisms
-\item Think of these are more like 'preponderance of evidence' than proof as parallel trends \emph{cannot} be tested and graphs can be misleading
-\end{itemize}
-
-
-\end{frame}
-
-
-\begin{frame}{Different Falsifications}
-
+\item Covariates serve very different purposes with diff-in-diff than with cross-sectional regressions
+\item "Omitted variable bias" is not about dealing with future endogeneities, but with imbalanced covariates that cause trends in missing potential outcomes\item When parallel trends holds from baseline, then:
 	\begin{enumerate}
-	\item Falsifications on same outcomes, and similar, but untreated, groups
-	\item Falsifications on different impossible outcomes, but same treatment groups
-	\item Event study graphical plots of pre-trends and post-trends
+	\item Unconditional parallel trends: no covariates needed
+	\item Conditional parallel trends: covariates needed
 	\end{enumerate}
+\item And even then we have a different parallel trends for the imputation estimators that requires it hold in every pre and post period
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Unconditional Parallel Trends}
+
+\begin{itemize}
+\item Unconditional parallel trends is a 2x2 on $\Delta E[Y^0]$ which satisfies:
+	$$\textcolor{red}{\Delta E[Y^0|D=1]} - \Delta E[Y^0|D=0] = 0$$
+\item Unconditional parallel trends is very close to assuming that the the treatment was as good as random since it is randomness that tends to set mean potential outcomes equal across treatment status
+\item Very often misinterpreted, also, as it is in not testable, even with event studies
+\end{itemize}
 
 
 \end{frame}
-
 
 \begin{frame}{Intuition behind event studies}
 
 \begin{itemize}
 
-	\item We cannot directly verify parallel trends, so for a long time researchers have focused on the pre-trends
-	\item \textcolor{blue}{Parallel pre-trends} are not the same as \textcolor{red}{parallel counterfactual post-trends}, but this is the smoking gun we typically look for nonetheless
-	\item Pre-period falsifications are common in causal inference, even outside of diff-in-diff, because the pre-period probably has the same confounder structure, but no treatment
+	\item Pre-period falsifications are common in causal inference, even outside of diff-in-diff, because the pre-period probably has the same confounder structure, but no treatment (Imbens regularly suggests it even outside of panel methods -- see Imbens and Xu 2024)
+	\item In that spirit, event studies grew up as a basic falsification to illustrate that if groups were similar on trends in the past, they'd likely be similar on trends in the future, even if past trends are not the same as future trends
+	\item But event studies require more than two periods and therefore we call it the 2xT design (Baker, et al. 2025)
+
 
 \end{itemize}
 
 \end{frame}
+
+
+
+
+\begin{frame}{Three Different Falsification Strategies}
+
+	\begin{enumerate}
+	\item \textbf{Event study falsification \#1}: diff-in-diff applied to the past which under NA is only estimating a parallel trend
+	\item \textbf{Same outcome, different group falsification \#2}: diff-in-diff applied to same outcomes, but similar and untreated group with similar confounder structure
+	\item \textbf{Different group, same outcome falsification \#3}: diff-in-diff applied to different and implausible outcomes with similar confounder structures using the same groups
+	\end{enumerate}
+
+
+\end{frame}
+
 
 
 
@@ -129,13 +132,16 @@
 \begin{frame}{Normal DiD coefficient}
 
 \begin{eqnarray*}
-\widehat{\delta} &=& \underbrace{E[Y^1_k | Post] - \textcolor{red}{E[Y^0_k | Post]}}_{\mathclap{\text{ATT}}} \\
-&& + \bigg [  \underbrace{\textcolor{red}{E[Y^0_k | Post]} - E[Y^0_k | Pre] \bigg ] - \bigg [ E[Y^0_U | Post] - E[Y_U^0 | Pre] }_{\mathclap{\text{Non-parallel trends bias in 2x2 case}}} \bigg ]
+\widehat{\delta} &=& \underbrace{E[Y^1_k | Post] - \textcolor{red}{E[Y^0_k | Post]}}_{\mathclap{\text{Post-treatment ATT}}} \\
+&& + \bigg [  \underbrace{\textcolor{red}{E[Y^0_k | Post]} - E[Y^0_k | Pre] \bigg ] - \bigg [ E[Y^0_U | Post] - E[Y_U^0 | Pre] }_{\mathclap{\text{Post treatment differential trends}}} \bigg ]
 \end{eqnarray*}
 
-\bigskip
 
-But this was \emph{post}-treatment.  Still, put that aside -- diff-in-diff equations \emph{always} identify the sum of those terms, even in the pre-period
+\begin{itemize}
+\item 2x2 diff-in-diff \emph{always} equals the sum of those under NA and an untreated comparison group
+\item It even equals that in the pre-period -- it's an identity
+\end{itemize}
+
 
 
 \end{frame}
@@ -143,37 +149,16 @@ But this was \emph{post}-treatment.  Still, put that aside -- diff-in-diff equat
 \begin{frame}{Pre-treatment DiD coefficient}
 
 \begin{eqnarray*}
-\widehat{\delta}_{t-2} &=& \bigg [  \underbrace{\textcolor{black}{E[Y^0_k | t-2]} - E[Y^0_k | t-1] \bigg ] - \bigg [ E[Y^0_U | t-2] - E[Y_U^0 | t-1] }_{\mathclap{\text{Non-parallel trends bias in 2x2 case}}} \bigg ]
+\widehat{\delta}_{t-2} &=& \underbrace{E[Y^1_k | t-2] - \textcolor{red}{E[Y^0_k | t-2]}}_{\mathclap{\text{ATT = 0 under NA}}} \\
+&& + \underbrace{\bigg[ E[Y^0_k | t-2] - E[Y^0_k | Pre] \bigg] - \bigg[ E[Y^0_U | t-2] - E[Y^0_U | Pre] \bigg]}_{\mathclap{\text{Differential pre-trends}}}
 \end{eqnarray*}
-
 \bigskip
 
-Under NA, then the $t-1$ period is untreated.  But then so are the other pre-periods so the ATT is implicitly zero and the \emph{only} thing that you can be measuring with pre-trend DiD coefficients is differential trends.
-
-
-\end{frame}
-
-
-
-\begin{frame}{Event study coefficients}
-
 \begin{itemize}
-\item Remember that the OLS specification we discuss collapses to ATT plus parallel trends bias
-\item This is \emph{always} true because it's an identity and holds even in the pre-period as much in the post
-\item It's just in the pre period, you do not have the missing $E[Y^0|D=1]$ term as no one and nothing is treated in pre-period under NA
-\item This means pre-period is basically an opportunity to directly verify parallel pre-trends -- but it's the past's pre-trends, not the counterfactual pre-trend of the present/future
-\item And that's how people use the pre-period -- they use the pre-period to evaluate whether they think this is a good control group
+\item Recall NA means $Y=Y^0$ for all pre-periods, or $\delta_{t<0}=0$
+\item Since every event study is a simple 2x2, then pre-treatment event study coefficients \emph{only} measure pre-trends
 \end{itemize}
 
-\end{frame}
-
-\begin{frame}{Event study example}
-
-\begin{itemize}
-\item The notion is really simple: if PT held then, you'll argue that it's reasonable it would've still held
-\item But this is an assertion, and you need to build the case as we said
-\item At this point, it's a lot easier to show you what I'm talking about -- where the art and the science meet -- with a great paper
-\end{itemize}
 
 \end{frame}
 
@@ -187,14 +172,34 @@ Under NA, then the $t-1$ period is untreated.  But then so are the other pre-per
 \end{figure}
 
 \end{frame}
-\begin{frame}{Their Evidence versus Their Result}
+
+
+\begin{frame}{Evidence versus Results}
 
 \begin{itemize}
-\item \textbf{Bite} -- they will show that the expansion shifted people into Medicaid and out of uninsured status
-\item \textcolor{black}{\textbf{Falsifications}} -- they show that there's no effect of Medicaid on a similar group that didn't enroll
-\item \textbf{Event study} -- they will lean hard on those dynamic plots
-\item \textcolor{red}{\textbf{Main results}} -- with all of this, they will show Medicaid expansion caused near elderly mortality to fall
-\item \textcolor{black}{\textbf{Mechanisms}} -- they think they can show it's coming from people treating diseases causing mortality declines to compound over time
+\item High quality linked administrative data showing rewards to accessing new data -- but still only a diff-in-diff
+\item Has five elements that I want to guide us through:
+	\begin{enumerate}
+	\item Bite -- show the first order effects (e.g., the program was adopted)
+	\item Falsifications -- same outcome/different groups and/or different group/same outcome
+	\item Event study -- best event study graphs are pre-treatment zeroes with small confidence intervals (will need power)
+	\item Main results -- simple summaries to aid interpretation (consider using baseline mean for treatment)
+	\item Mechanisms -- test your conjectures with more data (don't just tell stories)
+	\end{enumerate}
+\item Here's a selected summary of their study in light of those 5 elements
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{Evidence versus Results}
+
+\begin{itemize}
+\item \textbf{Bite} -- Medicaid expansion shifted people into Medicaid and out of uninsured status
+\item \textcolor{black}{\textbf{Falsifications}} -- No effect of Medicaid on a similar group that didn't enroll
+\item \textbf{Event study} and \textbf{Main results} -- Mostly compelling dynamic event study coefficients on near elderly mortality and simple summary (comparing to sample mean)
+\item \textcolor{black}{\textbf{Mechanisms}} --  Disease-related mortality declines that compound over time
 \end{itemize}
 
 \end{frame}
@@ -202,10 +207,9 @@ Under NA, then the $t-1$ period is untreated.  But then so are the other pre-per
 \begin{frame}{Bite}
 
 \begin{itemize}
-\item Bite is a labor economist's phrase, often used with the minimum wage, to say that the minimum wage actually was binding in the first place
-\item Here it means when US states made Medicaid more generous, people got on Medicaid who would not have been on it otherwise
-\item And as a bonus, would not have been insured at all without it
-\item Not the most exciting result, but imagine if the main results on mortality were shown but there was no evidence for bite -- is it believable?
+\item Imagine if your main results were shown but someone else found that no one ever got on the program you're studying -- seems implausible a program can work if no one uses it?
+\item Bite in this context means that when US states made Medicaid more generous, people got on Medicaid who would not have been on it otherwise
+\item Not always possible, but I think you want to push yourself to find the data that can support bite until you just feel the data does not exist (but keep trying anyway)
 \end{itemize}
 
 \end{frame}
@@ -266,8 +270,8 @@ Under NA, then the $t-1$ period is untreated.  But then so are the other pre-per
 \item \textbf{Bite}: Increases in enrollment and reductions in uninsured support that there is adoption of the treatment
 \item \textbf{Event studies}: Compelling graphics showing similarities between treatment and control
 \item \textbf{Falsifications}: no effect on a similar group who isn't eligible
-\item \textcolor{red}{Main results}: 9.2\% reduction in mortality among the near-elderly
-\item \textcolor{red}{Mechanism}: ``The effect is driven by a reduction in disease-related deaths and grows over time.''
+\item \textcolor{black}{Main results}: Simplified result is "9.2\% reduction in mortality among the near-elderly" using sample means (very common to do this)
+\item \textcolor{black}{Mechanism}: ``The effect is driven by a reduction in disease-related deaths and grows over time.''
 \end{itemize}
 
 \end{frame}
@@ -284,71 +288,8 @@ Under NA, then the $t-1$ period is untreated.  But then so are the other pre-per
 
 
 
-\begin{frame}{Event studies can mislead}
 
-\begin{itemize}
-
-\item People mistakenly equate parallel trends with parallel pretrends, but you can have one without the other, both or neither
-\item One of the ways you can have parallel pre-trends but violate parallel trends is if the trends change differentially by covariate over time (called x-specific trends)
-\item Code is called \texttt{misleading_eventstudy.do} and \texttt{misleading_eventstudy.R}
-\item Note how well the unconditional parallel trends assumption appears to be when reviewing the graphs only
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Event studies can mislead}
-
-\begin{figure}
-    \centering
-    \includegraphics[height=0.75\textheight]{./lecture_includes/es_flawed.png}
-\end{figure}
-
-\end{frame}
-
-
-\begin{frame}{Event studies can mislead}
-
-\begin{figure}
-    \centering
-    \includegraphics[height=0.75\textheight]{./lecture_includes/es_correct.png}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}{Time varying trends in $Y^0$ have \emph{nothing} to do with parallel trends}
-
-\begin{figure}
-    \centering
-    \includegraphics[height=0.75\textheight]{./lecture_includes/misleading_eventstudy_code.jpg}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}{Selection can also make event studies misleading}
-
-\begin{itemize}
-
-\item Remember from earlier: some forms of selection that satisfy parallel trends will nonetheless complicate event study plots
-\item Selection on baseline $Y^0$, for instance, can cause the pre-trends to break but not parallel trends
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Selection on $Y^0$ and event studies}
-
-\begin{figure}
-    \centering
-    \includegraphics[height=0.70\textheight]{./lecture_includes/selection_y0.png}
-\end{figure}
-
-\end{frame}
-
-
-
-
-
-
-\subsection{Falsifications}
+\subsection{Other Falsifications}
 
 \begin{frame}{Proof vs Evidence}
 
@@ -421,13 +362,13 @@ Sometimes, an empirical literature may be criticized using nothing more than pla
 
 
 
-\subsection{Triple Differences}
+\section{Triple Differences}
 
-\begin{frame}{Triple differences is a research design}
+\begin{frame}{Triple differences is a research design, not a falsification}
 
 \begin{itemize}
 
-\item Many people equate triple differences with falsification exercise, but actually it isn't that -- it is it's own design
+\item Many people equate triple differences with falsification exercise, but it isn't -- it is it's a \emph{design}
 \item You use triple differences when you have a parallel trends violation -- that is, when your diff-if-diff is biased
 \item Triple differences may sound like a falsification, but it isn't -- it's a research design you use when parallel trends is violated
 \item Miller, Johnson and Wherry (2021) didn't use triple differences with near elderly because they didn't think they had a parallel trends violation -- they used a falsification
@@ -465,8 +406,8 @@ Sometimes, an empirical literature may be criticized using nothing more than pla
 	\end{table}
 
 \begin{eqnarray*}
-\widehat{\delta}^{true}_{did} = D + (\textcolor{red}{NJ_t}- PA_t)
-\end{eqnarray*}The ATT is D. Assume, though, that parallel trends does not hold, $(\textcolor{red}{NJ_t} \neq PA_t)$
+\widehat{\delta}^{true}_{did} = D + (\textcolor{red}{NJ_t} \neq PA_t)
+\end{eqnarray*}In other words, you suspect that parallel trends was violated and thus diff-in-diff has no causal interpretation.
 
 \end{frame}
 
@@ -486,9 +427,9 @@ Sometimes, an empirical literature may be criticized using nothing more than pla
 		\multicolumn{1}{c}{$D_2$}\\
 		\midrule
 		Experimental states & Before & $Y=NJ$ \\
-		& After & $Y=NJ + NJ_t $ & $\textcolor{red}{NJ_t}$\\
+		& After & $Y=NJ + NJ_t $ & $\textcolor{black}{NJ_t}$\\
 		\midrule
-		& & & & $ (\textcolor{red}{NJ_t}- PA_t)$ \\
+		& & & & $ (\textcolor{black}{NJ_t}- PA_t)$ \\
 		\midrule
 		Non-experimental  & Before & $Y=PA$ \\
 		states& After & $Y=PA + PA_t$ & $PA_t$\\
@@ -498,8 +439,8 @@ Sometimes, an empirical literature may be criticized using nothing more than pla
 	\end{table}
 
 \begin{eqnarray*}
-\widehat{\delta}^{placebo}_{did} = (\textcolor{red}{NJ_t}- PA_t)
-\end{eqnarray*}Assume that parallel trends does not hold, $(\textcolor{red}{NJ_t} \neq PA_t)$
+\widehat{\delta}^{placebo}_{did} = (\textcolor{black}{NJ_t}- PA_t)
+\end{eqnarray*}Parallel trends \emph{also} does not hold, $(\textcolor{black}{NJ_t} \neq PA_t)$,
 
 \end{frame}
 
@@ -510,8 +451,8 @@ Sometimes, an empirical literature may be criticized using nothing more than pla
 
 
 \item Parallel trends does not hold, $(\textcolor{red}{NJ_t} \neq PA_t)$, but what if that's the same bias in our placebo DiD?
-\item Then we can subtract the second from the first: $$ \widehat{\delta}_{ddd} = \widehat{\delta}^{true}_{did} - \widehat{\delta}^{placebo}_{did}$$
-\item Triple differences is a ``real design'' with one parallel trends assumption: $$(\textcolor{red}{NJ_t}^{true}- PA_t^{true}) = (\textcolor{red}{NJ_t}^{placebo}- PA_t^{placebo})$$
+\item Then we can subtract the placebo diff-in-diff from the "true diff-in-diff": $$ \widehat{\delta}_{ddd} = \widehat{\delta}^{true}_{did} - \widehat{\delta}^{placebo}_{did}$$
+\item Triple differences is a ``real design'' with one parallel trends assumption: $$(\textcolor{red}{NJ_t}^{true}- PA_t^{true}) = (\textcolor{black}{NJ_t}^{placebo}- PA_t^{placebo})$$
 
 \end{itemize}
 
@@ -1529,3 +1470,66 @@ Without these six, in general TWFE will not identify ATT.
 
 
 \end{document}
+\begin{frame}{Event studies can mislead}
+
+\begin{itemize}
+
+\item People mistakenly equate parallel trends with parallel pretrends, but you can have one without the other, both or neither
+\item One of the ways you can have parallel pre-trends but violate parallel trends is if the trends change differentially by covariate over time (called x-specific trends)
+\item Code is called \texttt{misleading_eventstudy.do} and \texttt{misleading_eventstudy.R}
+\item Note how well the unconditional parallel trends assumption appears to be when reviewing the graphs only
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Event studies can mislead}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.75\textheight]{./lecture_includes/es_flawed.png}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Event studies can mislead}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.75\textheight]{./lecture_includes/es_correct.png}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Time varying trends in $Y^0$ have \emph{nothing} to do with parallel trends}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.75\textheight]{./lecture_includes/misleading_eventstudy_code.jpg}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Selection can also make event studies misleading}
+
+\begin{itemize}
+
+\item Remember from earlier: some forms of selection that satisfy parallel trends will nonetheless complicate event study plots
+\item Selection on baseline $Y^0$, for instance, can cause the pre-trends to break but not parallel trends
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Selection on $Y^0$ and event studies}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.70\textheight]{./lecture_includes/selection_y0.png}
+\end{figure}
+
+\end{frame}
+
+
+
+
+
