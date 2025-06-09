@@ -45,13 +45,13 @@ Monday: The Core of DiD (2x2)
 
 Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT
 - Sampling problems
---> Compositional changes in repeated cross sections and two propensity score adjustment (Hong 2013)
---> Conditional independence missingness, imputation and imputation (Cunningham 2026) vs missing at random (Wooldridge 2010)
+	- Compositional changes in repeated cross sections and two propensity score adjustment (Hong 2013)
+	- Conditional independence missingness, imputation and imputation (Cunningham 2026) vs missing at random (Wooldridge 2010)
 
 - Conditional parallel trends 
---> Covariate selection -- Common Sense versus Automated Covariate Selection with ML
---> Imbalance diagnostics: Propensity scores and Normalized difference in mean outcomes table
---> Estimation with Abadie IPW, Heckman, Ichimura and Todd OR, DR, and TWFE
+	- Covariate selection -- Common Sense versus Automated Covariate Selection with ML
+	- Imbalance diagnostics: Propensity scores and Normalized difference in mean outcomes table
+	- Estimation with Abadie IPW, Heckman, Ichimura and Todd OR, DR, and TWFE
 - Using drdid, csdid, and did for 2×T event studies
 - In class: Covariates and castle doctrine 2x2 and 2xT
 - Homework: Concealed carry and checklist (covariate selection and 2xT)
@@ -59,15 +59,14 @@ Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT
 
 Wednesday: Introducing Differential Timing (GxT)
 - Reviewing Bacon decomposition of TWFE
-- Reviewing Callaway & Sant’Anna with simulation
+- Reviewing Callaway & Sant’Anna with simulation and castle doctrine application
 - Calculating event study plots using long differences (traditional) versus "short gaps" (non-traditional) 
 - Craigslist case study
 
 Thursday: More on Differential Timing
 - Sun & Abraham and dCDH estimators
-- Borusyak et al., two-stage diff-in-diff, 
+- Imputation with Borusyak et al. and castle doctrine application
 - Honest DiD
-- Castle Doctrine coding exercise
 - Continuous DiD (DxT) and revisiting the abortion clinic closures 
 
 Friday: Reviewing concealed carry together
