@@ -52,12 +52,23 @@
 \begin{frame}{Introduction}
 
 \begin{itemize}
-\item Welcome to a week of advanced panel methods at the University of Glasgow!
+\item Welcome to a week of advanced panel methods at the Collegio Carlo Alberto!
 \item I'm Scott Cunningham, professor of economics at Baylor University (visiting this next year at Harvard University)
-\item Five days of difference-in-differences and other panel estimators!
+\item Five days of difference-in-differences -- some new, some review!
+\item This is my third time to teach here at the Collegio (I think?)
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}{Go to repository}
+
+\begin{itemize}
+\item \url{https://github.com/scunning1975/collegio-carlo-alberto}
+\item Discuss schedule in our README
+\end{itemize}
+
+\end{frame}
+
 
 
 \begin{frame}{What my pedagogy is like}
@@ -65,8 +76,8 @@
 \begin{itemize}
 \item Workshop is intended to take someone from knowing nothing about difference-in-differences to a broad level of competency on advanced topics
 \item My stuff will mix basic things with subtle interpretation, my own subjective beliefs about "good science" (but not necessarily good papers), and developments
-\item Lecture, discussion, exercises, application, coding along the way
-\item Ask questions at any point; I'll do my best to answer them
+\item It is a sequel to Juan Vargas' recent class, with the intention to build on that and deepen your familiarity, interpretation, application and problem solving
+\item Lecture, discussion, spreadsheets, application, several "coding together" exercises, as well as a homework assignment throughout the week
 \end{itemize}
 
 \end{frame}
@@ -85,80 +96,23 @@ Pedagogical goal is to explain diff-in-diff and other panel estimators, but as a
 
 
 
-\begin{frame}{Day 1 outline}
-
-Basics of difference-in-differences (Beginners but also my own personal take on this)
-	\begin{itemize}
-	\item The Core --
-		\begin{itemize}
-		\item what is difference-in-differences, how do you calculate it, what does it mean, what are its assumptions
-		\item Why do we weight?
-		\item Four Means or One Regression?
-		\end{itemize}
-	\item Testing for parallel trends -- event studies, falsifications
-	\item Violations of parallel trends and solutions:
-		\begin{itemize}
-		\item Compositional change and corrections
-		\item Triple differences
-		\item Handling covariates with regression adjustment, IPW, double robust vs traditional OLS specifications
-		\end{itemize}
-	\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{Day 2 outline}
-
-	\begin{itemize}
-	\item Covariates if not done
-	\item Traditional fixed effects regressions and Bacon decomposition
-	\item Callaway and Sant'Anna (2021) for differential timing
-	\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{Day 3 outline}
-
-
-\begin{itemize}
-\item Callaway and Sant'Anna (2021) continued
-\item CS in action with an example from my own work
-\item Decomposition event study leads and lags under staggered adoption (Sun and Abraham 2021)
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Day 4 outline}
-
-\begin{itemize}
-
-\item de Chaisemartin and D'Haultfoueille (2020)
-\item Imputation methods (e.g., Borusyak, et al. 2024)
-\item Honest diff-in-diff
-\item Continuous treatments in diff-in-diff framework 
-
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Day 5 outline}
-
-\begin{itemize}
-
-\item Synthetic control (Abadie)
-\item Imbalanced synthetic control and bias correction
-\item Matrix completion with nuclear norm regularization
-\item TBD
-
-\end{itemize}
-
-\end{frame}
 
 
 
 
 \subsection{Diff-in-Diff Popularity}
+
+
+\begin{frame}{What is difference-in-differences}
+
+\begin{itemize}
+\item DiD is when a group of units are assigned some treatment and then compared to a group of units that weren't before and after
+\item One of the most widely used quasi-experimental methods in economics and increasingly in industry
+\item Predates the randomized experiment by 80 years, but uses basic experimental ideas about treatment and control groups (just not randomized)
+\item Uses panel or repeated cross section datasets, binary treatments usually, and often covariates
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}{Causal Claims in Economics}
 
@@ -212,16 +166,6 @@ Basics of difference-in-differences (Beginners but also my own personal take on 
 
 
 
-
-\begin{frame}{What is difference-in-differences}
-
-\begin{itemize}
-\item DiD is when a group of units are assigned some treatment and then compared to a group of units that weren't before and after
-\item One of the most widely used quasi-experimental methods in economics and increasingly in industry
-\item Predates the randomized experiment by 80 years, but uses basic experimental ideas about treatment and control groups (just not randomized)
-\item Uses panel or repeated cross section datasets, binary treatments usually, and often covariates
-\end{itemize}
-\end{frame}
 
 
 \subsection{Origins of diff-in-diff in public health}

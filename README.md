@@ -24,13 +24,16 @@ While some of this is review, our focus is to better prepare you for your own re
 
 ## Schedule Overview -- Days and Times
 
-There are five days.  The following is our schedule:
+The class is approximately 19 hours over five days.  The following is our daily schedule:
+
 **Monday (day 1)**:
 - 14:00 to 17:00 (3 hours, no breaks)
+
 **Tuesday to Thursday (days 2-4):**
 - 10:00 to 12:00 (2 hours)
 - 12:00 to 13:00 (lunch)
 - 13:00 to 16:15 (3 hours plus a 15-min break)
+
 **Friday (day 5)**
 - 14:00 to 16:00 (2 hours, no breaks)
 
@@ -82,6 +85,16 @@ There are five days.  The following is our schedule:
 - Discussing your concealed carry and plotting class distribution
 
 ---
+
+**Office Hours**
+- Every morning from 8:30am to 9:45am at **Artifact coffeeshop**
+	- Via della Misericordia, 3c, 10122 Torino Italy
+	- https://maps.app.goo.gl/PzEVThdgM94TXb3a6
+- Every afternoon from 16:00pm to 17:00pm at **Moonlight cafe** beside CCA
+	- https://maps.app.goo.gl/zXttFwQjRUhUXNPZ9
+- Please sign up at:
+	- https://calendly.com/mixtape-sessions/30min
+
 
 ## Repository Structure
 
