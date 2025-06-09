@@ -41,8 +41,8 @@ xtreg l_homicide c.treat#c.post i.year, fe vce(cluster sid)
 
 * Example 3: Regress "long difference" onto treatment dummy
 preserve
-    keep sid year l_homicide prison treat
-    reshape wide l_homicide prison, i(sid) j(year)
+    keep sid year l_homicide treat
+    reshape wide l_homicide, i(sid) j(year)
     gen diff = l_homicide2006 - l_homicide2005
     reg diff treat, vce(cluster sid)
 restore
@@ -50,8 +50,16 @@ restore
 * Now calculate the same thing using population weights as below
 
 * Example 1: OLS regression with interactions and population weights
-reg l_homicide post##treat [aweight=popwt], cluster(state) 
+reg l_homicide post##treat [aweight=popwt], cluster(sid) 
 
 * Example 2: Twoway fixed effects (state and year fixed effects)
+xtreg l_homicide c.treat#c.post i.year [aw=popwt], fe vce(cluster sid)
 
 * Example 3: Regress "long difference" onto treatment dummy
+preserve
+    keep sid year l_homicide popwt treat
+    reshape wide l_homicide popwt, i(sid) j(year)
+    gen diff = l_homicide2006 - l_homicide2005
+    reg diff treat [aw=popwt2005], vce(cluster sid)
+restore
+

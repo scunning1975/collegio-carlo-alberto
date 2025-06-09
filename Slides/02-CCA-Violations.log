@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.14)  9 JUN 2025 13:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.14)  9 JUN 2025 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1868,9 +1868,7 @@ Overfull \hbox (28.62434pt too wide) in paragraph at lines 314--314
 
 ] [29
 
-] (./02-CCA-Violations.toc) [30
-
-] [31
+] [30
 
 ]
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/l/it' aliased to
@@ -1881,32 +1879,31 @@ LaTeX Font Info:    Font shape `OT1/Roboto-LF/b/n' aliased to
 (Font)              `OT1/Roboto-LF/bold/n' on input line 412.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/bold/n' will be
 (Font)              scaled to size 8.0pt on input line 412.
- [32
+ [31
+
+] [32
 
 ] [33
 
-] [34
-
 ]
-<./lecture_includes/gruber_ddd_3.pdf, id=339, 205.9056pt x 224.68094pt>
+<./lecture_includes/gruber_ddd_3.pdf, id=326, 205.9056pt x 224.68094pt>
 File: ./lecture_includes/gruber_ddd_3.pdf Graphic file (type pdf)
 <use ./lecture_includes/gruber_ddd_3.pdf>
 Package pdftex.def Info: ./lecture_includes/gruber_ddd_3.pdf  used on input lin
 e 467.
 (pdftex.def)             Requested size: 205.90509pt x 224.68039pt.
+ [34
 
-[35
-
- <./lecture_includes/gruber_ddd_3.pdf>] [36
+ <./lecture_includes/gruber_ddd_3.pdf>] [35
 
 ]
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/b/n' aliased to
 (Font)              `OT1/Roboto-LF/bold/n' on input line 532.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/bold/n' will be
 (Font)              scaled to size 6.0pt on input line 532.
- [37
+ [36
 
-] [38
+] [37
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+Roboto-LF on input 
@@ -1924,19 +1921,19 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `Roboto-LF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [39
+ [38
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/roboto/rbto_ocbbsb.enc}]
-<./lecture_includes/ddd_simulation.png, id=411, 1266.23062pt x 919.435pt>
+<./lecture_includes/ddd_simulation.png, id=398, 1266.23062pt x 919.435pt>
 File: ./lecture_includes/ddd_simulation.png Graphic file (type png)
 <use ./lecture_includes/ddd_simulation.png>
 Package pdftex.def Info: ./lecture_includes/ddd_simulation.png  used on input l
 ine 571.
 (pdftex.def)             Requested size: 316.55688pt x 229.85818pt.
- [40
+ [39
 
  <./lecture_includes/ddd_simulation.png>]
-<./lecture_includes/olden_moen_2022_ddd.png, id=419, 682.04813pt x 1040.88875pt
+<./lecture_includes/olden_moen_2022_ddd.png, id=406, 682.04813pt x 1040.88875pt
 >
 File: ./lecture_includes/olden_moen_2022_ddd.png Graphic file (type png)
 <use ./lecture_includes/olden_moen_2022_ddd.png>
@@ -1947,16 +1944,16 @@ put line 579.
 Overfull \vbox (30.41805pt too high) detected at line 579
  []
 
-[41
+[40
 
- <./lecture_includes/olden_moen_2022_ddd.png>] [42
+ <./lecture_includes/olden_moen_2022_ddd.png>] [41
 
-] (./02-CCA-Violations.toc) [43
+] (./02-CCA-Violations.toc) [42
 
-] [44
+] [43
 
 ]
-<./lecture_includes/hong_napster.png, id=453, 676.5275pt x 283.55937pt>
+<./lecture_includes/hong_napster.png, id=441, 676.5275pt x 283.55937pt>
 File: ./lecture_includes/hong_napster.png Graphic file (type png)
 <use ./lecture_includes/hong_napster.png>
 Package pdftex.def Info: ./lecture_includes/hong_napster.png  used on input lin
@@ -1967,29 +1964,31 @@ Overfull \hbox (4.06755pt too wide) in paragraph at lines 617--617
  [] 
  []
 
-[45
+[44
 
  <./lecture_includes/hong_napster.png>]
-<./lecture_includes/Hong_1.pdf, id=461, 301.15051pt x 200.70114pt>
+<./lecture_includes/Hong_1.pdf, id=448, 301.15051pt x 200.70114pt>
 File: ./lecture_includes/Hong_1.pdf Graphic file (type pdf)
 <use ./lecture_includes/Hong_1.pdf>
 Package pdftex.def Info: ./lecture_includes/Hong_1.pdf  used on input line 625.
 
 (pdftex.def)             Requested size: 301.14978pt x 200.70064pt.
- [46
+ [45
 
- <./lecture_includes/Hong_1.pdf>] [47
+ <./lecture_includes/Hong_1.pdf>] [46
 
 ]
-<./lecture_includes/hong_table.png, id=556, 670.00313pt x 225.84375pt>
+<./lecture_includes/hong_table.png, id=544, 670.00313pt x 225.84375pt>
 File: ./lecture_includes/hong_table.png Graphic file (type png)
 <use ./lecture_includes/hong_table.png>
 Package pdftex.def Info: ./lecture_includes/hong_table.png  used on input line 
 653.
 (pdftex.def)             Requested size: 335.00075pt x 112.92159pt.
- [48
+ [47
 
- <./lecture_includes/hong_table.png>] [49
+ <./lecture_includes/hong_table.png>] [48
+
+] [49
 
 ] [50
 
@@ -1997,26 +1996,26 @@ Package pdftex.def Info: ./lecture_includes/hong_table.png  used on input line
 
 ] [52
 
-] [53
-
 ]
-[54
+[53
 
-] [55
+] [54
 
 ]
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/l/it' aliased to
 (Font)              `OT1/Roboto-LF/light/it' on input line 779.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/light/it' will be
 (Font)              scaled to size 14.4pt on input line 779.
- [56
+ [55
 
 ]
 Overfull \hbox (9.76501pt too wide) detected at line 789
 []
  []
 
-[57
+[56
+
+] [57
 
 ] [58
 
@@ -2024,21 +2023,21 @@ Overfull \hbox (9.76501pt too wide) detected at line 789
 
 ] [60
 
-] [61
-
 ]
-<./lecture_includes/step6_imbalance.png, id=646, 792.9625pt x 527.47063pt>
+<./lecture_includes/step6_imbalance.png, id=634, 792.9625pt x 527.47063pt>
 File: ./lecture_includes/step6_imbalance.png Graphic file (type png)
 <use ./lecture_includes/step6_imbalance.png>
 Package pdftex.def Info: ./lecture_includes/step6_imbalance.png  used on input 
 line 865.
 (pdftex.def)             Requested size: 323.68896pt x 215.31812pt.
- [62
+ [61
 
- <./lecture_includes/step6_imbalance.png>] [63
+ <./lecture_includes/step6_imbalance.png>] [62
 
 ]
-[64
+[63
+
+] [64
 
 ] [65
 
@@ -2058,19 +2057,19 @@ line 865.
 
 ] [73
 
-] [74
-
 ]
-<./lecture_includes/common_support_abadie.jpg, id=728, 1555.8125pt x 1401.235pt
+<./lecture_includes/common_support_abadie.jpg, id=717, 1555.8125pt x 1401.235pt
 >
 File: ./lecture_includes/common_support_abadie.jpg Graphic file (type jpg)
 <use ./lecture_includes/common_support_abadie.jpg>
 Package pdftex.def Info: ./lecture_includes/common_support_abadie.jpg  used on 
 input line 1047.
 (pdftex.def)             Requested size: 77.79518pt x 70.06584pt.
- [75
+ [74
 
- <./lecture_includes/common_support_abadie.jpg>] [76
+ <./lecture_includes/common_support_abadie.jpg>] [75
+
+] [76
 
 ] [77
 
@@ -2086,10 +2085,10 @@ input line 1047.
 
 ] [83
 
-] [84
-
 ]
-[85
+[84
+
+] [85
 
 ] [86
 
@@ -2111,33 +2110,31 @@ input line 1047.
 
 ] [95
 
-] [96
-
 ]
 Overfull \vbox (2.4227pt too high) detected at line 1413
  []
 
-[97
+[96
+
+] [97
 
 ] [98
-
-] [99
 
 ]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [100
+ [99
 
 ]
-<./lecture_includes/covariates.jpg, id=891, 2635.8475pt x 1756.5625pt>
+<./lecture_includes/covariates.jpg, id=881, 2635.8475pt x 1756.5625pt>
 File: ./lecture_includes/covariates.jpg Graphic file (type jpg)
 <use ./lecture_includes/covariates.jpg>
 Package pdftex.def Info: ./lecture_includes/covariates.jpg  used on input line 
 1465.
 (pdftex.def)             Requested size: 200.51924pt x 133.6127pt.
- [101
+ [100
 
  <./lecture_includes/covariates.jpg>]
 \tf@nav=\write6
@@ -2149,49 +2146,74 @@ Package pdftex.def Info: ./lecture_includes/covariates.jpg  used on input line
 \tf@snm=\write8
 \openout8 = `02-CCA-Violations.snm'.
 
-
+ [101]
 (./02-CCA-Violations.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `02-CCA-Violations.out' has not changed.
-(rerunfilecheck)             Checksum: 22DBB9ED3C7E6838395752F181224F8D;1312.
+
+LaTeX Warning: Temporary extra page added at the end. Rerun to get it removed.
+
+
+Package rerunfilecheck Warning: File `02-CCA-Violations.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `02-CCA-Violations.out':
+(rerunfilecheck)             Before: 22DBB9ED3C7E6838395752F181224F8D;1312
+(rerunfilecheck)             After:  4C6D21771F841477266DEF1281AC4A3E;1327.
  ) 
 Here is how much of TeX's memory you used:
  43917 strings out of 476025
- 939144 string characters out of 5790017
+ 939139 string characters out of 5790017
  1874388 words of memory out of 5000000
  63100 multiletter control sequences out of 15000+600000
  547540 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,1014b,707s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-Bold.pfb
-></usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-Light.pfb
-></usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-LightItal
-ic.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
-.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.p
-fb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
-></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
-sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/lo
-cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
-/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
-2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2
-023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/202
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 02-CCA-Violations.pdf (101 pages, 6997685 bytes).
+
+pdfTeX warning (dest): name{Outline0.3.3.65} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Outline0.3.2.55} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Outline0.3.1.44} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Outline0.3} has been referenced but does not exist,
+ replaced by a fixed one
+
+</usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-Bold.pfb><
+/usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-Light.pfb><
+/usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-LightItalic
+.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
+pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
+></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
+/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr
+/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loca
+l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
+/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
+23/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/202
+3/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on 02-CCA-Violations.pdf (101 pages, 6997326 bytes).
 PDF statistics:
- 1024 PDF objects out of 1200 (max. 8388607)
- 794 compressed objects within 8 object streams
- 211 named destinations out of 1000 (max. 500000)
+ 1017 PDF objects out of 1200 (max. 8388607)
+ 787 compressed objects within 8 object streams
+ 213 named destinations out of 1000 (max. 500000)
  41803 words of extra memory for PDF output out of 42996 (max. 10000000)
 
