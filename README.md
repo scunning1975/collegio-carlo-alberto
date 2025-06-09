@@ -22,21 +22,21 @@ While some of this is review, our focus is to better prepare you for your own re
 
 ---
 
-## Schedule Overview -- Times
+## Schedule Overview -- Days and Times
 
 There are five days.  The following is our schedule:
-Monday (day 1):
+**Monday (day 1)**:
 - 14:00 to 17:00 (3 hours, no breaks)
-Tuesday to Thursday (days 2-4):
+**Tuesday to Thursday (days 2-4):**
 - 10:00 to 12:00 (2 hours)
 - 12:00 to 13:00 (lunch)
 - 13:00 to 16:15 (3 hours plus a 15-min break)
-Friday (day 5)
+**Friday (day 5)**
 - 14:00 to 16:00 (2 hours, no breaks)
 
 ## Schedule Overview -- Coverage
 
-Monday: The Core of DiD (2x2)
+**Monday: The Core of DiD (2x2)**
 - Review of 2×2 DiD -- four averages, three subtractions
 - Review Potential outcomes and ATT 
 	- Estimation with "the three regressions" equivalence to 2x2
@@ -47,7 +47,7 @@ Monday: The Core of DiD (2x2)
 - Review: Triple differences
 	- Homework: Concealed carry (Lott and Mustard 1997; Donohue et al. 2011) and checklist
 
-Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT
+**Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT**
 - Sampling problems
 	- Compositional changes in repeated cross sections and two propensity score adjustment (Hong 2013)
 	- Conditional independence missingness, imputation and imputation (Cunningham 2026) vs missing at random (Wooldridge 2010)
@@ -61,7 +61,7 @@ Tuesday: Violations of Parallel Trends with Covariates in 2x2 and 2xT
 	- Homework: Concealed carry and checklist (covariate selection and 2xT)
 
 
-Wednesday: Introducing Differential Timing (GxT)
+**Wednesday: Introducing Differential Timing (GxT)**
 - Reviewing Bacon decomposition of TWFE
 - Estimation with Callaway & Sant’Anna 
 	- Simulation 
@@ -70,14 +70,14 @@ Wednesday: Introducing Differential Timing (GxT)
 	- Event Studies with Long Differences (Traditional) and Short Gaps (Non-Traditional)
 - Problem Solving Your Diff-in-Diff: **Craigslist case study**
 
-Thursday: More on Differential Timing
+**Thursday: More on Differential Timing**
 - Decomposing leads and lags with Sun & Abraham 
 - Diff-in-diff with entry and exit: dCDH 
 - Imputation with Borusyak et al. and castle doctrine application
 - Honest DiD
 - New: **Continuous DiD (DxT) and revisiting the abortion clinic closures**
 
-Friday: Wrapping things up
+**Friday: Wrapping things up**
 - Continuous DiD (DxT) continued
 - Discussing your concealed carry and plotting class distribution
 
@@ -99,7 +99,7 @@ Our repository contains:
 
 ## Who Is This Class For?
 
-You!  A social scientist (particularly economics) doctoral student working on diff-in-diff projects early in your career seeking to:
+**You!**  A social scientist (particularly economics) doctoral student working on diff-in-diff projects early in your career seeking to:
 
 - Understand when and how DiD assumptions break down
 - Learn how modern tools address those problems
@@ -130,6 +130,7 @@ Participants should be comfortable with basic regression and panel data structur
 - Borusyak, et al. (2024), *Restud*
 - Roth & Rambachan (2023), *Honest DiD*
 - Callaway, Goodman-Bacon & Sant’Anna (2025), *AER R&R*
+- **Tons of papers** in our `/references/' for your leisure!
 
 
 ---
