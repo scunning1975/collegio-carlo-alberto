@@ -6,7 +6,7 @@ Welcome to the materials for the **Collegio Carlo Alberto on Applied Causal Pane
 
 ## About the Workshop
 
-This workshop introduces and explores some of the most important modern methods in causal inference for panel data, including:
+This workshop a sequel to Juan F. Vargas recent panel methods class.  It introduces and explores some of the most important modern methods in causal inference for panel data, including:
 
 - Difference-in-Differences (DiD)
 - Event studies and dynamic treatment effects
