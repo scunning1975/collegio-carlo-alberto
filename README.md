@@ -83,9 +83,9 @@ Friday: Wrapping things up
 
 ---
 
-## Structure
+## Repository Structure
 
-This repository contains:
+Our repository contains:
 
 - `README.md` – This file  
 - `/data/` – Sample datasets used during exercises  
@@ -97,13 +97,14 @@ This repository contains:
 
 ---
 
-## Who Is This For?
+## Who Is This Class For?
 
-Social Science (particularly economics) doctoral students working on diff-in-diff projects seeking to:
+You!  A social scientist (particularly economics) doctoral student working on diff-in-diff projects early in your career seeking to:
 
 - Understand when and how DiD assumptions break down
 - Learn how modern tools address those problems
 - Practice implementing these methods in real code
+- Problem solving **weird results** before going live with them
 
 ---
 
