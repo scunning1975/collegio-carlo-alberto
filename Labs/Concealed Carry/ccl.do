@@ -6,7 +6,7 @@
 clear 
 capture log close 
 
-* Home Director
+* Change this to your working directory
 cd "/Users/scunning/Library/CloudStorage/Dropbox-MixtapeConsulting/scott cunningham/Classes/Archive/Advanced causal inference/Lott_Mustard/Programs"
 
 use https://github.com/scunning1975/mixtape/raw/master/adz_lm.dta, clear
@@ -14,7 +14,11 @@ use https://github.com/scunning1975/mixtape/raw/master/adz_lm.dta, clear
 /*
 \item[Step 1.] Define the Research Question Using Potential Outcomes
 
+Outcome variable is lratmur (log murder rate)
+
 \item[Step 2.] Is Everyone Treated at the Same Time?
+
+treat_date equals zero if never treated and the other years listed in treat_date are when those counties were commonly treated. 
 
 \item[Step 3.] Plot Treatment Rollout
 
@@ -34,6 +38,7 @@ use https://github.com/scunning1975/mixtape/raw/master/adz_lm.dta, clear
 
 */
 
+* [Step 1.] Picking your treatment effect parameter is largely about weighting by population. 
 
 * [Step 2.] Is Everyone Treated at the Same Time?
 
@@ -61,4 +66,10 @@ ren first_shallf_year treat_date
 replace treat_date=0 if treat_date==.
 replace treat_date=0 if treat_date>1992
 
-drop if year>1992 // matching Lott and Mustard years
+drop if year>1992 // matching Lott and Mustard years (1977 to 1992)
+
+gen pop_wt = popc
+label variable pop_wt "County level population"
+
+
+
