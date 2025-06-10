@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.14)  9 JUN 2025 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.14)  10 JUN 2025 09:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1886,7 +1886,7 @@ LaTeX Font Info:    Font shape `OT1/Roboto-LF/bold/n' will be
 ] [33
 
 ]
-<./lecture_includes/gruber_ddd_3.pdf, id=326, 205.9056pt x 224.68094pt>
+<./lecture_includes/gruber_ddd_3.pdf, id=325, 205.9056pt x 224.68094pt>
 File: ./lecture_includes/gruber_ddd_3.pdf Graphic file (type pdf)
 <use ./lecture_includes/gruber_ddd_3.pdf>
 Package pdftex.def Info: ./lecture_includes/gruber_ddd_3.pdf  used on input lin
@@ -1924,7 +1924,7 @@ Package microtype Info: Loading generic protrusion settings for font family
  [38
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/roboto/rbto_ocbbsb.enc}]
-<./lecture_includes/ddd_simulation.png, id=398, 1266.23062pt x 919.435pt>
+<./lecture_includes/ddd_simulation.png, id=397, 1266.23062pt x 919.435pt>
 File: ./lecture_includes/ddd_simulation.png Graphic file (type png)
 <use ./lecture_includes/ddd_simulation.png>
 Package pdftex.def Info: ./lecture_includes/ddd_simulation.png  used on input l
@@ -1933,7 +1933,7 @@ ine 571.
  [39
 
  <./lecture_includes/ddd_simulation.png>]
-<./lecture_includes/olden_moen_2022_ddd.png, id=406, 682.04813pt x 1040.88875pt
+<./lecture_includes/olden_moen_2022_ddd.png, id=405, 682.04813pt x 1040.88875pt
 >
 File: ./lecture_includes/olden_moen_2022_ddd.png Graphic file (type png)
 <use ./lecture_includes/olden_moen_2022_ddd.png>
@@ -1953,7 +1953,7 @@ Overfull \vbox (30.41805pt too high) detected at line 579
 ] [43
 
 ]
-<./lecture_includes/hong_napster.png, id=441, 676.5275pt x 283.55937pt>
+<./lecture_includes/hong_napster.png, id=438, 676.5275pt x 283.55937pt>
 File: ./lecture_includes/hong_napster.png Graphic file (type png)
 <use ./lecture_includes/hong_napster.png>
 Package pdftex.def Info: ./lecture_includes/hong_napster.png  used on input lin
@@ -1967,7 +1967,7 @@ Overfull \hbox (4.06755pt too wide) in paragraph at lines 617--617
 [44
 
  <./lecture_includes/hong_napster.png>]
-<./lecture_includes/Hong_1.pdf, id=448, 301.15051pt x 200.70114pt>
+<./lecture_includes/Hong_1.pdf, id=446, 301.15051pt x 200.70114pt>
 File: ./lecture_includes/Hong_1.pdf Graphic file (type pdf)
 <use ./lecture_includes/Hong_1.pdf>
 Package pdftex.def Info: ./lecture_includes/Hong_1.pdf  used on input line 625.
@@ -1978,7 +1978,7 @@ Package pdftex.def Info: ./lecture_includes/Hong_1.pdf  used on input line 625.
  <./lecture_includes/Hong_1.pdf>] [46
 
 ]
-<./lecture_includes/hong_table.png, id=544, 670.00313pt x 225.84375pt>
+<./lecture_includes/hong_table.png, id=542, 670.00313pt x 225.84375pt>
 File: ./lecture_includes/hong_table.png Graphic file (type png)
 <use ./lecture_includes/hong_table.png>
 Package pdftex.def Info: ./lecture_includes/hong_table.png  used on input line 
@@ -2024,7 +2024,7 @@ Overfull \hbox (9.76501pt too wide) detected at line 789
 ] [60
 
 ]
-<./lecture_includes/step6_imbalance.png, id=634, 792.9625pt x 527.47063pt>
+<./lecture_includes/step6_imbalance.png, id=631, 792.9625pt x 527.47063pt>
 File: ./lecture_includes/step6_imbalance.png Graphic file (type png)
 <use ./lecture_includes/step6_imbalance.png>
 Package pdftex.def Info: ./lecture_includes/step6_imbalance.png  used on input 
@@ -2058,7 +2058,7 @@ line 865.
 ] [73
 
 ]
-<./lecture_includes/common_support_abadie.jpg, id=717, 1555.8125pt x 1401.235pt
+<./lecture_includes/common_support_abadie.jpg, id=713, 1555.8125pt x 1401.235pt
 >
 File: ./lecture_includes/common_support_abadie.jpg Graphic file (type jpg)
 <use ./lecture_includes/common_support_abadie.jpg>
@@ -2128,7 +2128,7 @@ Package microtype Info: Loading generic protrusion settings for font family
  [99
 
 ]
-<./lecture_includes/covariates.jpg, id=881, 2635.8475pt x 1756.5625pt>
+<./lecture_includes/covariates.jpg, id=877, 2635.8475pt x 1756.5625pt>
 File: ./lecture_includes/covariates.jpg Graphic file (type jpg)
 <use ./lecture_includes/covariates.jpg>
 Package pdftex.def Info: ./lecture_includes/covariates.jpg  used on input line 
@@ -2146,74 +2146,49 @@ Package pdftex.def Info: ./lecture_includes/covariates.jpg  used on input line
 \tf@snm=\write8
 \openout8 = `02-CCA-Violations.snm'.
 
- [101]
+
 (./02-CCA-Violations.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Temporary extra page added at the end. Rerun to get it removed.
-
-
-Package rerunfilecheck Warning: File `02-CCA-Violations.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `02-CCA-Violations.out':
-(rerunfilecheck)             Before: 22DBB9ED3C7E6838395752F181224F8D;1312
-(rerunfilecheck)             After:  4C6D21771F841477266DEF1281AC4A3E;1327.
+Package rerunfilecheck Info: File `02-CCA-Violations.out' has not changed.
+(rerunfilecheck)             Checksum: 4C6D21771F841477266DEF1281AC4A3E;1327.
  ) 
 Here is how much of TeX's memory you used:
- 43917 strings out of 476025
- 939139 string characters out of 5790017
+ 43910 strings out of 476025
+ 939062 string characters out of 5790017
  1874388 words of memory out of 5000000
- 63100 multiletter control sequences out of 15000+600000
+ 63097 multiletter control sequences out of 15000+600000
  547540 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,1014b,707s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Outline0.3.3.65} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Outline0.3.2.55} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Outline0.3.1.44} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Outline0.3} has been referenced but does not exist,
- replaced by a fixed one
-
-</usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-Bold.pfb><
-/usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-Light.pfb><
-/usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-LightItalic
-.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
-pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
-></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
-/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr
-/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loca
-l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
-ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
-/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
-23/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/202
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 02-CCA-Violations.pdf (101 pages, 6997326 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-Bold.pfb
+></usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-Light.pfb
+></usr/local/texlive/2023/texmf-dist/fonts/type1/google/roboto/Roboto-LightItal
+ic.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
+.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.p
+fb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
+sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/lo
+cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
+/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2
+023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/202
+3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2023/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on 02-CCA-Violations.pdf (100 pages, 6996346 bytes).
 PDF statistics:
- 1017 PDF objects out of 1200 (max. 8388607)
- 787 compressed objects within 8 object streams
- 213 named destinations out of 1000 (max. 500000)
+ 1009 PDF objects out of 1200 (max. 8388607)
+ 780 compressed objects within 8 object streams
+ 209 named destinations out of 1000 (max. 500000)
  41803 words of extra memory for PDF output out of 42996 (max. 10000000)
 
