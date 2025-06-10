@@ -2,6 +2,8 @@
 
 Welcome to the materials for the **Collegio Carlo Alberto on Applied Causal Panel Methods**, a weeklong intensive course (9:00–16:00 daily) focused on estimation, interpretation, application and trouble shooting with advanced techniques for estimating causal effects in panel data.  
 
+TUESDAY MORNING: THE ARTIFACT COFFEESHOP IS NOT OPEN. PLEASE MEET AT MOONLIGHT CAFE INSTEAD.
+
 ---
 
 ## About the Workshop
