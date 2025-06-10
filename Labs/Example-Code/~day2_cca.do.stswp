@@ -109,7 +109,7 @@ So I will control for those
 
 */
 
-
+x
 * Abadie IPW
 
 * Step 1. Get the "long difference" for each group
@@ -153,8 +153,8 @@ preserve
 
  
 * Make the propensity score figure in addition to the imbalance table:
-	twoway (histogram pscore if treat==1,  color(red)) ///
-       (histogram pscore if treat==0,  ///
+twoway (kdensity pscore if treat==1,  color(red)) ///
+       (kdensity pscore if treat==0,  ///
 	   fcolor(none) lcolor(black)), legend(order(1 "Treated" 2 "Not treated" ))
 
 restore
