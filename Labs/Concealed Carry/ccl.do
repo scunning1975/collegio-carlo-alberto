@@ -18,17 +18,19 @@ use https://github.com/scunning1975/mixtape/raw/master/adz_lm.dta, clear
 
 \item[Step 3.] Plot Treatment Rollout
 
-\item[Step 4.] Validity of Unconditional Parallel Trends Assumption
+\item[Step 4.] Selecting Your Comparison Group
 
-\item[Step 5.] Check Overlap
+\item[Step 5.] Validity of Unconditional Parallel Trends Assumption
 
-\item[Step 6.] Plot Average Outcomes Across Cohorts
+\item[Step 6.] Check Overlap
 
-\item[Step 7.] Estimator Selection and Assumptions
+\item[Step 7.] Plot Average Outcomes Across Cohorts
 
-\item[Step 8.] Sensitivity Analysis for Parallel Trends Violations
+\item[Step 8.] Estimator Selection and Assumptions
 
-\item[Step 9.] Throw in the Towel on Diff-in-Diff
+\item[Step 9.] Sensitivity Analysis for Parallel Trends Violations
+
+\item[Step 10.] Don't Do Diff-in-Diff (DDDiD)
 
 */
 
