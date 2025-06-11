@@ -115,6 +115,13 @@ So I will control for those
 * Step 1. Get the "long difference" for each group
 preserve
 	keep if year==2005 | year==2006
+	
+* As a comparison
+drdid l_homicide ///
+      unemployrt, ///
+      ivar(sid) time(year) tr(treat) all
+
+* Get the long difference for treatment and control group
     keep sid year l_homicide unemployrt treat
     reshape wide l_homicide unemployrt, i(sid) j(year)
 	drop unemployrt2006 // dropping post-treatment X
