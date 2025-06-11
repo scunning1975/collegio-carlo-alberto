@@ -115,6 +115,9 @@ So I will control for those
 * Step 1. Get the "long difference" for each group
 preserve
 	keep if year==2005 | year==2006
+
+* Regression
+areg l_homicide unemployrt i.year post##treat, a(sid) robust	
 	
 * As a comparison
 drdid l_homicide ///
