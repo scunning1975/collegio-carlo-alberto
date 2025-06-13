@@ -108,13 +108,18 @@ $$Y_{it} = \alpha + \delta D_{it}  + \tau_t + \sigma_s + \varepsilon_{it}$$
 
 \end{frame}
 
+\subsection{Target Parameters}
+
 
 \begin{frame}{Average causal response functions}
 
 
+Review of old terms, introducing new terms:
+
+\bigskip
 
 \begin{itemize}
-\item \textbf{ATT}: Average effect for a binary treatment on a sub-population of treated units after they were treated
+\item \textbf{ATT}: Average effect for a binary treatment on a sub-population of treated units after they were treated (i.e., $E[\delta|D=1]$ for binary treatment)
 \item \textbf{Dose}: Treatment is not binary but rather multi-valued or continuous.  Represents either ATTs for groups at dosages, or movements along a dosage curve -- not the same thing as it turns out
 \end{itemize}
 
@@ -124,36 +129,29 @@ $$Y_{it} = \alpha + \delta D_{it}  + \tau_t + \sigma_s + \varepsilon_{it}$$
 
 
 
-\begin{frame}{Parameters}
+\begin{frame}{Dosage Parameters give us a multitude of ATTs}
 
-\begin{block}{Average treated on the treated}
-$ATT(d|d) = E[Y^d_{it} - Y^0_{it} | D_{it}=d]$
+\begin{block}{Average treated on the treated for a given dose}
+$ATT(d|d) = E[Y^d_{it} - \textcolor{red}{Y^0_{it}} | D_{it}=d]$
 \end{block}
 
-\bigskip
-
-while the treatment, $D$, can be any amount, $d$, that amount is technically a particular dose.  We raised the minimum wage, but we raised it to a particular wage. 
+\begin{itemize}
+\item This is a restatement of our original ATT, except we are defining the binary treatment, $D$, at a given dosage $d$. 
+\item ``What is the average effect of being 100 kilometers from a hospital compared to being 0 kilometers from a hospital?''
+	\begin{itemize}
+	\item Notice the counterfactual -- "zero dose" (i.e., $\textcolor{red}{Y^0}$)
+	\end{itemize}
+\item  This is ``the ATT of dose $d=100$ km for the groups that are at $d=100$ km'' which uses as its comparison no dose (as opposed to a marginally smaller dose)
+\end{itemize}
 
 \end{frame}
 
 
-\begin{frame}{Parameters}
 
-\begin{block}{Average treated on the treated}
-$ATT(d|d) = E[Y^d_{it} - Y^0_{it} | D_{it}=d]$
-\end{block}
-
-\bigskip
-
-This is ``the ATT of $d$ for the groups that chose $d$ dosage'' which uses as its comparison no dose.
-
-\end{frame}
-
-
-\begin{frame}{Angrist and Imbens 1995}
+\begin{frame}{Earlier dosage parameters in causal inference}
 
 \begin{quote}
-``We refer to the parameter $\beta$ as the \textbf{average causal response (ACR)}. This parameter captures a weighed average causal responses to a unit change in treatment, for those whose treatment status is affected by the instrument. \dots ''
+``We refer to the parameter $\beta$ as the \textbf{average causal response (ACR)}. This parameter captures a weighed average causal responses to a unit change in treatment, for those whose treatment status is affected by the instrument. \dots '' (Angrist and Imbens 1995)
 \end{quote}
 
 \end{frame}
@@ -167,7 +165,7 @@ This is ``the ATT of $d$ for the groups that chose $d$ dosage'' which uses as it
 \end{center}
 \end{figure}
 
-What is the effect of setting fees to \$100 versus nothing at all? It's ATT(\$100$|$a) for this city.
+What is the effect of aspirin on headache symptoms for a single person?  At 50 mg, the ATT is 31, but at 100mg, it's 44.   
 
 
 \end{frame}
@@ -180,7 +178,11 @@ What is the effect of setting fees to \$100 versus nothing at all? It's ATT(\$10
 \end{center}
 \end{figure}
 
-Assume city $a$ did choose $d=\$100$. Then ATT(\$50$|$a) just means that that is its ATT \emph{had} it chosen the lower level.  The curve, in other words, is tracing out all average causal response for this city.
+\begin{itemize}
+\item Assume Giovanni is person $a$ and he chose in reality $d=50$ mg of aspiring.  
+\item Then $ATT(100|a)$ is a counterfactual ATT because while it is the same person, it is a dosage that he has not yet taken.  
+\item All ATTs have counterfactuals, but the curve maps out not just counterfactual causal effects, but also \emph{counterfactual dosages}
+\end{itemize}
 
 
 \end{frame}
@@ -194,21 +196,32 @@ Assume city $a$ did choose $d=\$100$. Then ATT(\$50$|$a) just means that that is
 \end{center}
 \end{figure}
 
-What if everyone has different responses?  In other words, city $a$ has the higher curve than city $b$.  Then there are several comparisons possible.  What is the effect of \$50 on outcomes for cities that actually chose \$50 versus those than actually chose \$100?  
+What if everyone has different responses?  In other words, Giovanni, person $a$, and Jessica, person $b$, have \emph{difference} causal responses and different \emph{response} at even the same dosage.  Maybe Giovanni responds better to aspirin than Jessica, but Giovanni takes 50 mg, and Jessica takes 100.  What then?
+
+\end{frame}
+
+\begin{frame}{ATT for a given dose}
+
+\begin{figure}
+\begin{center}
+             \includegraphics[scale=0.3]{./lecture_includes/acrt_fig2b.png}
+\end{center}
+\end{figure}
+
+You might estimate negative effects, even though higher dosages actually improve health outcomes
 
 \end{frame}
 
 
 
-\begin{frame}{Parameters}
 
-\begin{block}{Average treated on the treated}
-$ATT(d|d) = E[Y^d_{it} - Y^0_{it} | D_{it}=d]$
-\end{block}
+\begin{frame}{Moving along the dosage is not the ATT}
 
-\bigskip
-
-Notice that you are comparing any dose $d$ to no treatment at all -- sort of an extensive margin causal response, but that isn't the only causal concept we have.  Elasticities are causal, demand curves are causal, but they aren't based on comparisons to nothing -- they are intensive margin comparisons, local comparisons, adjacencies. Zero isn't the only counterfactual in other words.
+\begin{itemize}
+\item So, the vertical axis is a measure of the ATT(d|d), similar to what we have been doing -- but always the counterfactual is "zero dose"
+\item But when if we were to \emph{move} between points?  
+\item That's a different parameter called the average causal response for the treated group, or ACRT(d$|$d)
+\end{itemize}
 
 \end{frame}
 \begin{frame}
@@ -307,6 +320,10 @@ No anticipation and parallel trends converts this comparison of before and after
 
 $ATT(d|d)$ is using as its counterfactual the ``no treatment'', note.  Treatment is a dosage compared to zero iow.
 
+\bigskip
+
+Which means we will need as our controls units whose potential outcome \emph{was always zero} in the long difference
+
 \end{frame}
 
 
@@ -373,17 +390,19 @@ Notice parallel trends allows to identify ATT terms but we need additional assum
 \subsection{Selection bias}
 
 
+
 \begin{frame}{Causality and selection bias}
 
 \begin{figure}
 \begin{center}
-             \includegraphics[scale=0.3]{./lecture_includes/acrt_fig2.png}
+             \includegraphics[scale=0.3]{./lecture_includes/acrt_fig2d.png}
 \end{center}
 \end{figure}
 
 Draw the ACRT for top curve and the selection bias from estimation under assumptions 1 to 4.
 
 \end{frame}
+
 
 \begin{frame}{Interpreting this}
 
@@ -402,7 +421,7 @@ Draw the ACRT for top curve and the selection bias from estimation under assumpt
 
 \item When estimating treatment effects using continuous DiD, you will need to make one of two assumptions
 	\begin{enumerate}
-	\item Strong parallel trends: Average change in $E[Y^0]$ for the entire sample is the same as the $d$ group
+	\item Strong parallel trends: That selection bias isn't there because everyone has the same ACR
 	\item Parallel trends plus homogenous treatment effect functions
 	\end{enumerate}
 \item Roy model like sorting on gains typically lead to violations of the second condition insofar as there is heterogenous returns to dosages across units
@@ -557,6 +576,19 @@ We discuss an alternative but typically stronger assumption, which we call stron
       \item Selection bias issues persist and require different solutions.
     \end{itemize}
 \end{itemize}
+\end{frame}
+
+\section{Application}
+
+\begin{frame}{Switching to a lab}
+
+\begin{itemize}
+
+\item We'll first look at my friend's lecture notes from CodeChella Madrid and go through his code in Stata
+\item Then I'm going to go through my abortion clinic paper and \emph{attempt} to see if I did it!
+
+\end{itemize}
+
 \end{frame}
 
 \end{document}
